@@ -1,0 +1,45 @@
+
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+
+<div class="container">
+    {% if user.is_authenticated %}
+    <a href="{% url 'add-post' %}" class="btn btn-primary">Add Post &rarr;</a>
+    <a href="{% url 'add-category' %}" class="btn btn-primary">Add Category &rarr;</a>
+    {% endif %}
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.category}} | {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.created_on.date}}
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{post.content|slice:":200"|safe }}</p>
+                    <a href="{% url 'post-detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}
