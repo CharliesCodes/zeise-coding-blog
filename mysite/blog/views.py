@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post, Category
 from .forms import PostForm, EditPostForm
 from django.urls import reverse_lazy
-
+from django.shortcuts import render
 
 
 class PostList(ListView):
@@ -38,3 +38,9 @@ class AddCategoryView(CreateView):
     # form_class = PostForm
     template_name = 'add_category.html'
     fields = '__all__'
+
+
+def category_view(request, category):
+    category_name = category.replace('-',' ')
+    category_posts = Post.objects.filter(category=category_name)
+    return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
