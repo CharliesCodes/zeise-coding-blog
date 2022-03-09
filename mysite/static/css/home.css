@@ -1,9 +1,9 @@
 
 .spaced-btns{
-  margin-top:3.5rem;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  max-width:80%
+  flex-direction: row;
+  justify-content: space-evenly !important;
 }
 
 #btn-courses, #btn-blog {
@@ -25,4 +25,12 @@
 
 #btn-blog:hover{
   transform: scale(1.2);
+}
+
+#profile-image{
+    max-width: 100%;
+    height: auto;
+    width: auto; /*ie8*/
+    border: 0.25rem solid;
+    border-color: var(--gray-color);
 }

@@ -1,23 +1,22 @@
 
 .pinned-post-box{
-  max-width:100%;
-  padding-left:10%;
-  padding-right:10%;
+  width:100%;
 }
 
-
-.pinned-posts{
-  justify-content: flex-start;
-  flex-direction: column;
-}
 
 .pinned-post{
-  width: 80%;
-  border: 2px solid;
-  border-radius: 20px;
-  padding: 10px 35px;
-  margin-bottom: 2.5rem !important;
+  width: 100%;
+  position: relative;
   /* border-color: var(--light-turquoise-color); */
+}
+
+#star-icon {
+  color: var(--yellow-color);
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
 }
 
 
@@ -54,4 +53,34 @@ input.search-input {
   background-repeat: no-repeat !important;
   color: var(--gray-color) !important;
   border-color: var(--gray-turquoise-color) !important;
+}
+
+
+#main-search-title{
+    color: var(--gray-turquoise-color);
+    display: inline;
+}
+
+/*---------------------------------------------
+              CATEGORY
+---------------------------------------------*/
+#main-category-title{
+  color: var(--gray-turquoise-color);
+  display: inline;
+}
+
+
+.post-card{
+  width: 100%;
+}
+
+
+/*---------------------------------------------
+              DETAIL
+---------------------------------------------*/
+
+.post-detail-divider{
+  width:50%;
+  border-color: var(--light-turquoise-color) !important;
+  border-top: 0.15rem solid;
 }

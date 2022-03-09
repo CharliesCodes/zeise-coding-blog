@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.template.defaultfilters import slugify
 
 
 class Profile(models.Model):
@@ -59,9 +60,14 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='blog_posts')
     snippet = models.CharField(max_length=200)
+    pin = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_on']
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

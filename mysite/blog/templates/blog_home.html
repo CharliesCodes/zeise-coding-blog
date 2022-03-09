@@ -10,67 +10,79 @@
 
 {% block content %}
 
+<div class="container">
 
-<div div class="container">
+    {% comment %} <h1 style="margin-bottom: 3.5rem; text-align:center;">Blog</h1> {% endcomment %}
 
-    <div class="pinned-post-box" style="margin-bottom: 2.5rem;">
-        <h1 style="margin-bottom: 3.5rem; text-align:center;">Pinned Posts</h1>
-        <div class="pinned-posts flex-container">
-            <div class="pinned-post" style="margin:auto">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</div>
-            <div class="pinned-post" style="margin:auto">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna</div>
+    {% if categories_menu %}
+    <div class="flex-container wrap center btn-group-wrap" role="group" aria-label="Basic example" style="margin-bottom: 5rem">
+        {% for item in categories_menu %}
+        <a href="{% url 'category' item|slugify %}" class="btn-blog-category btn">{{ item|title }}</a>
+        {% endfor %}
+        <div class="input-groupcenter">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search-post' %}">
+                {% csrf_token %}
+                <input class=" form-control mr-sm-1 search-input" type="search" placeholder="Search Post" aria-label="Search" name="post-search-input">
+                <button class="btn btn-search" type="submit">Search</button>
+            </form>
+        </div>
+
+        {% comment %} <hr class ="center" style="width: 90%; margin-top:2rem;"> {% endcomment %}
+
+    </div>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <div class="center">
+            <a href="{% url 'add-post' %}" class="btn">Add Post</a>
+            <a href="{% url 'add-category' %}" class="btn">Add Category</a>
+        </div>
+    {% endif %}
+
+
+    <div class="col" style="margin-bottom: 3rem">
+        <!-- Blog Entries Column -->
+        <div class="flex-container wrap center" style="width: 100%;">
+            {% for post in pinned_posts %}
+            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
+                <div class="card-body">
+                    <div id="star-icon">
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6"><a href="{% url 'category' post.category|slugify %}"> {{ post.category|title }}</a> | {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+                        {% if user.is_authenticated and user.id == post.author.id %}
+                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{ post.snippet|safe }}</p>
+                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 
 
-
-
-    <div class="container">
-
-        {% if categories_menu %}
-        <div class="flex-container wrap center btn-group-wrap" role="group" aria-label="Basic example" style="margin-bottom: 5rem">
-            {% for item in categories_menu %}
-            <a href="{% url 'category' item|slugify %}" class="btn-blog-category btn">{{ item|title }}</a>
-            {% endfor %}
-            <div class="input-groupcenter">
-                <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search-post' %}">
-                    {% csrf_token %}
-                    <input class=" form-control mr-sm-1 search-input" type="search" placeholder="Search Post" aria-label="Search" name="post-search-input">
-                    <button class="btn btn-search" type="submit">Search</button>
-                </form>
-            </div>
-            <hr style="width: 100%; margin: 1rem 10% 0 10%">
-        </div>
-        {% endif %}
-
-
-
-        {% if user.is_authenticated %}
-            <div class="center">
-                <a href="{% url 'add-post' %}" class="btn">Add Post</a>
-                <a href="{% url 'add-category' %}" class="btn">Add Category</a>
-            </div>
-        {% endif %}
-
-
-        <div class="row">
-            <!-- Blog Entries Column -->
-            <div class="col-md-8 mt-3 left" style="margin: auto">
-                {% for post in post_list %}
-                <div class="card mb-4 border-card" style="margin-bottom: 3.5rem !important">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text text-muted h6"><a href="{% url 'category' post.category|slugify %}"> {{ post.category|title }}</a> | {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
-                            {% if user.is_authenticated and user.id == post.author.id %}
-                                <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-                            {% endif %}
-                        </p>
-                        <p class="card-text">{{ post.snippet|safe }}</p>
-                        <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
-                    </div>
+    <div class="col">
+        <!-- Blog Entries Column -->
+        <div class="flex-container wrap center" style="width: 100%;">
+            {% for post in post_list %}
+            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6"><a href="{% url 'category' post.category|slugify %}"> {{ post.category|title }}</a> | {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+                        {% if user.is_authenticated and user.id == post.author.id %}
+                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{ post.snippet|safe }}</p>
+                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
+
 {%endblock%}

@@ -8,13 +8,16 @@ from django.db.models import Q
 
 
 class PostList(ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1, pin=False).order_by('-created_on')
     template_name = 'blog_home.html'
 
     def get_context_data(self, *args, **kwargs):
         categories_menu = Category.objects.all()
+        pinned_posts = Post.objects.filter(pin=True)
         context = super(PostList, self).get_context_data(*args, **kwargs)
+
         context['categories_menu'] = categories_menu
+        context['pinned_posts'] = pinned_posts
         return context
 
 class PostDetail(DetailView):

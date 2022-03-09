@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/blog.css" %}">
+{% endblock %}
+
 {% block content %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top">
+
+  <div class="flex-container wrap center" style="width: 100%;">
+    <div class="card">
       <div class="card-body">
         <h1> {{ post.title }}</h1>
-        <p class=" text-muted">{{ post.author.first_name }} {{ post.author.last_name }} | {{ post.created_on.date }}
+        <p class="text-muted" style="text-align: end; font-size:1rem;">{{ post.author.first_name }} {{ post.author.last_name }}</br>{{ post.created_on.date }}
         <p class="card-text"><small class="text-muted">Social Media Icons here! / If statement with for loop from list</small></p>
           {% if user.is_authenticated and user.id == post.author.id %}
             <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
           {% endif %}
         </p>
-        <p class="card-text ">
+        <hr class="post-detail-divider" style="margin-bottom:5rem;">
+
+
+        <p class="card-text">
           {% if post.header_image %}
             <img src="{{ post.header_image.url | safe }}">
           {% endif %}

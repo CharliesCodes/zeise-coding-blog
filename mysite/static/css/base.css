@@ -122,14 +122,27 @@ header {
 
 
 /* ---------- CONTENT -------------------------*/
-.page-content {
-    /* border-style: solid; */
-    display: flex;
-    align-items: center;
-    width: 40%;
-    margin: auto;
+
+
+@media only screen and (min-width: 1200px){
+  .page-content {
+      /* border-style: solid; */
+      display: flex;
+      align-items: center;
+      width: 40%;
+      margin: auto;
+  }
 }
 
+@media only screen and (max-width: 1200px) {
+  .page-content {
+      /* border-style: solid; */
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: auto;
+  }
+}
 
 
 /*---------------------------------------------
@@ -140,7 +153,7 @@ header {
 h1, h2, h3 {
   color:white;
   /* text-transform: uppercase; */
-  letter-spacing: 1px;
+  letter-spacing: 0.063rem;
   font-family: "Roboto-Black", Arial, sans-serif;
   font-weight: bold;
   overflow-wrap: break-word;
@@ -176,8 +189,9 @@ p {
 hr{
   color: var(--gray-color);
   display:block;
-  border-top: 1px solid;
+  border-top: 0.063rem solid;
 }
+
 
 /* ------------LINKS------------------------*/
 a {
@@ -263,7 +277,7 @@ a:active {
 }
 
 .border-card {
-  border: 2px solid;
+  border: 0.125rem solid;
   border-color: var(--gray-color);
   border-radius: 2rem;
   object-fit:cover;

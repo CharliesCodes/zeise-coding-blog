@@ -8,23 +8,26 @@
 
 
 {% block content %}
-<div class="card mb-3">
-    <div class="row">
+<div class="flex-container wrap container">
+
+    <div class="row warp" style="margin-bottom: 3rem">
         <div class="col-8">
-            <div class="card-body">
-                <h1 class="card-title" style="margin-bottom: 3rem">Data-Science, Bioinformatik, Python-Projekte und schlechte Bots!</h1>
-                <h2 style="margin-bottom: 1.5rem">Dies und viel mehr erwartet dich hier.</h2>
-                <p style="width:80%">Hi! Ich bin Dominique, habe Bioinformatik studiert und arbeite als Software-Engineer.</br>Wenn du dich für Bioinformatik, Datenanalysen, Raspberry Pi Projekte und die Entwicklung schlechter Bots interessierst, bist du hier genau richtig.</p>
-                <div class="spaced-btns">
-                    <a href="{% url 'home'  %}" id="btn-courses" class="btn-filled">Kurse</a>
-                    <a href="{% url 'blog-home' %}" id="btn-blog" class="btn-bordered">Blog</a>
-                </div>
-            </div>
+            <h1>Data-Science, Bioinformatik, Python-Projekte und schlechte Bots!</h1>
         </div>
-        <div class="col-4" style="margin-top: 1.5rem">
-            <img src="{% static '/images/profile/dz-profile-picture_square.jpg' %}" class="circular--square" height=230px style="border:4px solid #C5C6C7" alt="No Profile Picture">
+        <div class="col-4">
+            <img src="{% static '/images/profile/dz-profile-picture_square.jpg' %}" class="circular--square" id="profile-image" alt="No Profile Picture">
         </div>
     </div>
+
+    <h2 style="margin-bottom: 1.5rem">Dies und viel mehr erwartet dich hier.</h2>
+    <p style="width:80%; margin-bottom: 3rem">Hi! Ich bin Dominique, habe Bioinformatik studiert und arbeite als Software-Engineer.</br>Wenn du dich für Bioinformatik, Datenanalysen, Raspberry Pi Projekte und die Entwicklung schlechter Bots interessierst, bist du hier genau richtig.</p>
+
+    <div class="spaced-btns" style="width:80%">
+        <a href="{% url 'home' %}" id="btn-courses" class="btn-filled">Kurse</a>
+        <a href="{% url 'blog-home' %}" id="btn-blog" class="btn-bordered">Blog</a>
+    </div>
+
+
 </div>
 
 {% endblock content %}
