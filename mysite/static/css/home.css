@@ -1,0 +1,28 @@
+
+.spaced-btns{
+  margin-top:3.5rem;
+  display: flex;
+  justify-content: space-between;
+  max-width:80%
+}
+
+#btn-courses, #btn-blog {
+  font-size: var(--h2-size) !important;
+  font-weight: bold;
+  border-radius: 20px !important;
+  padding: 10px 35px !important;
+  border: 2px solid;
+  border-color: var(--light-turquoise-color);
+  transition: all .3s ease-in-out;
+}
+
+#btn-courses:hover{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  transform: scale(1.2);
+}
+
+
+#btn-blog:hover{
+  transform: scale(1.2);
+}

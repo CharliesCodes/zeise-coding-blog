@@ -1,0 +1,304 @@
+
+/*---------------------------------------------
+              BASIC SETUP
+---------------------------------------------*/
+:root {
+    /* palette */
+
+    --black-color: #0B0C10;
+    --dark-gray-color: #1F2833;
+    --gray-color: #C5C6C7;
+    --dark-blue-color: #2C5EB3;
+    --gray-turquoise-color: #45A29E;
+    --light-turquoise-color: #66FCF1;
+    --orange-color: #fc8966;
+    --yellow-color: #fcd466;
+    --violett-color: #6670fc;
+    --light-green-color: #6bfc66;
+    --neon-green-color: #00FE0C;
+
+    /* themes */
+
+    /* --stamps-color: var(--beige-color);
+    --envelopes-color: var(--blue-sky-color);
+    --postal-cards-color: var(--emerald-color);
+    --postcards-color: var(--red-color);
+    --about-color: var(--light-wood-color); */
+    --page-color: var(--dark-gray-color);
+    --btn-bg-color: var(--page-color);
+    --scrollbar-bg-color: var(--dark-gray-color);
+    --thumb-bg-color: var(--page-color);
+    /* --image-placeholder-color: var(--light-gray-color); */
+
+    /* typography */
+
+    --serif-fonts: "Times New Roman", serif;
+    --sans-serif-fonts: "Roboto-Light", Arial, sans-serif;
+
+    /* --welcome-head-text: 1.75em;
+    --welcome-text: 1.125em;*/
+    --h1-size: 2.75rem; /*44px*/
+    --h2-size: 1.688rem; /*27px*/
+    --h3-size: 1.688rem; /*27px*/
+    /* --date-size: 1.75rem; */
+    --text-size: 1.25rem; /*20px*/;
+
+
+    /* common */
+    --header-height: 7.25em;
+
+}
+
+*::selection {
+    background: var(--black-color);
+    color: var(--gray-color);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+    position: relative;
+}
+
+html {
+    font-size:100%;
+}
+
+body {
+    background: var(--black-color);
+    font-family: var(--sans-serif-fonts);
+    font-size: var(--text-size);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /*24px*/
+    letter-spacing: 0.013rem; /*0.2px;*/
+    color: var(--gray-color);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumb-bg-color) var(--scrollbar-bg-color);
+}
+
+body::-webkit-scrollbar {
+    width: 16px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--thumb-bg-color) ;
+    border-radius: 30px;
+    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+    border: none;
+}
+
+header {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    max-height: var(--header-height);
+    box-sizing: border-box;
+    background: var(--page-color);
+}
+
+
+.shadow {
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+}
+.masthead {
+    background: #3398E1;
+    height: auto;
+    padding-bottom: 15px;
+    box-shadow: 0 16px 48px #E3E7EB;
+    padding-top: 10px;
+}
+
+
+/* ---------- CONTENT -------------------------*/
+.page-content {
+    /* border-style: solid; */
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+}
+
+
+
+/*---------------------------------------------
+          REUSABLE COMPONENTS
+---------------------------------------------*/
+
+/* ---------- HEADINGS -------------------------*/
+h1, h2, h3 {
+  color:white;
+  /* text-transform: uppercase; */
+  letter-spacing: 1px;
+  font-family: "Roboto-Black", Arial, sans-serif;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+
+h1 {
+    font-size: var(--h1-size);
+    word-spacing: 0.25rem;
+    line-height: 3.063rem;
+}
+
+h2, h3 {
+    word-spacing: 0.01rem;
+    line-height: 1.8rem;
+}
+
+h2 {
+  font-size: var(--h2-size);
+}
+
+h3 {
+  font-size: var(--h3-size);
+}
+
+/* ------------PARAGRAPHS------------------------*/
+
+p {
+  
+}
+
+/* ------------HORIZONTAL RULE------------------------*/
+
+hr{
+  color: var(--gray-color);
+  display:block;
+  border-top: 1px solid;
+}
+
+/* ------------LINKS------------------------*/
+a {
+  color: var(--gray-turquoise-color);
+}
+
+a:hover {
+  color: var(--yellow-color);
+}
+/* ------------CONTAINER------------------------*/
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.wrap {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+/* ------------ICONS------------------------*/
+
+/* ------------LINKS---------------------------*/
+/* a:link,
+a:active {
+  color: #e67e22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e67e22;
+} */
+/* ------------BUTTONS---------------------------*/
+
+
+.btn-filled, .btn-bordered {
+  border: 2px solid;
+  border-color: var(--light-turquoise-color);
+}
+
+.btn-filled {
+  background-color: var(--light-turquoise-color);
+  color: var(--black-color);
+}
+
+.btn-bordered {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #f00000;
+    border-color: #dc281e;
+}
+
+.read-more-btn {
+  color: var(--light-turquoise-color);
+}
+
+/* .btn:hover{
+  color: var(--yellow-color) !important;
+} */
+
+/* ------------CARDS---------------------------*/
+
+.card{
+  background-color: transparent;
+  background-repeat: no-repeat;
+}
+
+.border-card {
+  border: 2px solid;
+  border-color: var(--gray-color);
+  border-radius: 2rem;
+  object-fit:cover;
+}
+
+
+/* ------------IMAGES---------------------------*/
+
+.circular--square {
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+
+.circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.circular--landscape img {
+    width: auto;
+    height: 100%;
+    margin-left: -50px;
+}
+
+/*---------------------------------------------
+              HEADER
+---------------------------------------------*/
+
+/*---------------------------------------------
+              BLOGPOSTS
+---------------------------------------------*/
+
+

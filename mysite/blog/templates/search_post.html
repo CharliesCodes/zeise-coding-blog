@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/search_post.css" %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div div class="container">
+
+{% if filtered_posts %}
+
+    <div class="center" style="margin-bottom:3.5rem;">
+        <h1>Deine Suche:&ensp;</h1>
+        <h1 id="main-search-title">{{search|title}}</h1>
+    </div>
+    <div class="row center">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in filtered_posts %}
+            <div class="card mb-4 border-card">
+                <div class="card-body" style="margin-bottom: 1rem">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author.first_name|title  }} {{ post.author.last_name|title  }} - {{ post.created_on.date}}
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{ post.snippet|safe }}</p>
+                    <a href="{% url 'post-detail' post.slug  %}" class="btn read-more-btn">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% else %}
+    <h1> Aktuell gibt es keine Beiträge dieser Kategorie </h1>
+{% endif %}
+
+
+</div>
+
+{%endblock%}
