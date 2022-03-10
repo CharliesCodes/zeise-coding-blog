@@ -56,17 +56,6 @@ def category_view(request, category):
     return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
 
 
-def like_view(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.likes.add(request.user)
-    return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
-
-class AddPostView(CreateView):
-    model = Post
-    form_class = PostForm
-    template_name = 'add_post.html'
-
-
 def search_post(request):
     if request.method == "POST":
         search = request.POST['post-search-input']
@@ -76,3 +65,8 @@ def search_post(request):
         return render(request, 'search_post.html', {'search': search, 'filtered_posts': filtered_posts})
     else:
         return render(request, 'search_post.html', {})
+
+def like_post(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('post_detail', arg=[str(post.id)]))

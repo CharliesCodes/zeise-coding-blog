@@ -4,7 +4,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('register/', views.UserRegisterView.as_view(), name='register'),
+    # path('register/', views.UserRegisterView.as_view(), name='register'),
     path('edit-settings/', views.UserEditView.as_view(), name='edit_profile'),
     # path('password/', auth_views.PasswordChangeView.as_view(template_name = 'registration/change-password.html'), name='change_password'),
     path('password/', views.PasswordsChangeView.as_view(template_name = 'registration/change-password.html'), name='change_password'),

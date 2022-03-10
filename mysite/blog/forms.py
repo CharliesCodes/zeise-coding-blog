@@ -12,10 +12,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ('title', 'author', 'category', 'content', 'snippet', 'status', 'header_image', 'pin') #'content_upload',
-
+        slug = models.SlugField(max_length=200, unique=True)
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'slug': models.SlugField(max_length=200, unique=True),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value':'', 'id':'author_field_id', 'type':'hidden'}),
             # 'author': forms.Select(attrs={'class': 'form-control'}),
             'category': forms.Select(choices = category_choices, attrs={'class': 'form-control'}),
@@ -40,6 +39,6 @@ class EditPostForm(forms.ModelForm):
             'category': forms.Select(attrs={'class': 'form-control'}),
             # 'content': forms.Textarea(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'status': forms.Select(attrs={'class': 'form-control'}),
             'snippet': forms.Textarea(attrs={'class': 'form-control'}),
+            'status': forms.Select(attrs={'class': 'form-control'}),
         }

@@ -43,7 +43,10 @@
 
 
 {% else %}
-    <h1> Aktuell gibt es keine Beiträge dieser Kategorie </h1>
+    <div style="margin-bottom:3.5rem;">
+        <h1 style="text-align:center"> Aktuell gibt es keine Beiträge zu:&ensp;</h1>
+        <h1 style="text-align:center; color: var(--gray-turquoise-color);">{{search|title}}</h1>
+    </div>
 {% endif %}
 
 

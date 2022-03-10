@@ -61,7 +61,8 @@
 }
 
 html, body {
-    position: relative;
+  position: relative;
+  height: 100%;
 }
 
 html {
@@ -228,6 +229,11 @@ a:hover {
 
 /* ------------ICONS------------------------*/
 
+ion-icon {
+  font-size: 2rem;
+}
+
+
 /* ------------LINKS---------------------------*/
 /* a:link,
 a:active {
@@ -262,12 +268,21 @@ a:active {
 }
 
 .read-more-btn {
-  color: var(--light-turquoise-color);
+  color: var(--gray-turquoise-color);
+  font-weight: bold;
 }
 
 /* .btn:hover{
   color: var(--yellow-color) !important;
 } */
+
+
+/* ------------DIVIDER---------------------------*/
+.light-turquoise-divider{
+  border-color: var(--light-turquoise-color) !important;
+  border-top: 0.15rem solid;
+}
+
 
 /* ------------CARDS---------------------------*/
 
@@ -314,5 +329,3 @@ a:active {
 /*---------------------------------------------
               BLOGPOSTS
 ---------------------------------------------*/
-
-

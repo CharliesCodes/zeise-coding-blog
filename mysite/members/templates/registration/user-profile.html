@@ -1,30 +1,64 @@
 
 {% extends "base.html" %}
 {% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/blog.css" %}">
+{% endblock %}
+
 {% block content %}
 
-<h1>User Profile</h1>
+<div class="flex-container wrap center" style="width: 100%;">
 
-<div class="card mb-3">
-    <div class="row g-0">
-      <div class="col-md-2">
-        {% if page_user.profile_pic %}
-          <img src="{{ page_user.profile_pic.url }}" class="img-fluid rounded-start rounded-cirlce" width=300 height=300 alt="No Profile Picture">
-        {% else %}
-          <img src="{% static 'logo/Logo_ZC.png' %}" class="img-fluid rounded-start rounded-cirlce" width=300 height=300 alt="No Profile Picture">
-        {% endif %}
-        </div>
-      <div class="col-md-6">
-        <div class="card-body">
-          <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
-          <p class="card-text"><small class="text-muted">Social Media Icons here! / If statement with for loop from list</small></p>
-          <p class="card-text">{{ page_user.bio }}</p>
-          <i class="bi-github" role="img" aria-label="GitHub"></i>
-        </div>
-      </div>
+
+
+    <h1 style="margin-bottom: 3rem;">Benutzerprofil</h1>
+
+
+    <div class="row warp" style="margin-bottom: 3rem; padding: 0 1.25rem 0 1.25rem">
+          <div class="col-3">
+            {% if page_user.profile_pic %}
+              <img src="{{ page_user.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
+            {% else %}
+              <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
+            {% endif %}
+          </div>
+          <div class="col-9">
+            <h5 class="card-title">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
+            <p class="flex-container warp" style="align-items:center">
+              {% if page_user.website_url%}
+                <a href="{{ page_user.website_url }}" target="_blank">Website</a>
+              {% endif %}
+              {% if page_user.github_url%}
+              <a href="{{ page_user.github_url }}" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+              {% endif %}
+              {% if page_user.linkedin_url%}
+              <a href="{{ page_user.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+              {% endif %}
+              {% if page_user.reddit_url%}
+              <a href="{{ page_user.reddit_url }}" target="_blank"><ion-icon name="logo-reddit"></ion-icon></a>
+              {% endif %}
+              {% if page_user.instagram_url%}
+              <a href="{{ page_user.instagram_url }}" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+              {% endif %}
+              {% if page_user.pinterest_url%}
+              <a href="{{ page_user.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest"></ion-icon></a>
+              {% endif %}
+              {% if page_user.twitter_url%}
+              <a href="{{ page_user.twitter_url }}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+              {% endif %}
+              {% if page_user.facebook_url%}
+                <a href="{{ page_user.facebook_url }}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+              {% endif %}
+            </p>
+
+            <p class="card-text" style="margin-top:1rem;">{{ page_user.bio }}</p>
+          </div>
     </div>
-  </div>
 
 
+
+
+</div>
 
 {%endblock%}

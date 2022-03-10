@@ -3,8 +3,8 @@ from django.views import generic
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ProfilePageForm
-from blog.models import Profile
+from .forms import SignUpForm, EditProfileSettingsForm, PasswordChangingForm, ProfilePageForm
+from members.models import Profile
 
 
 class UserRegisterView(generic.CreateView):
@@ -14,7 +14,7 @@ class UserRegisterView(generic.CreateView):
 
 
 class UserEditView(generic.UpdateView):
-    form_class = EditProfileForm
+    form_class = EditProfileSettingsForm
     template_name = 'registration/edit_profile.html'
     success_url = reverse_lazy('home')
 
@@ -39,14 +39,19 @@ class ShowProfilePageView(generic.DetailView):
         context = super(ShowProfilePageView, self).get_context_data(*args, **kwargs)
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
         context["page_user"] = page_user
+        print(context["page_user"])
         return context
 
 
 class EditProfilePageView(generic.UpdateView):
     model = Profile
+    form_class = ProfilePageForm
     template_name = 'registration/edit-profile-page.html'
-    fields = ['bio', 'profile_pic', 'website_url', 'github_url', 'linkedin_url', 'reddit_url', 'instagram_url', 'pinterest_url', 'twitter_url', 'facebook_url']
     success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class CreateProfilePageView(generic.CreateView):

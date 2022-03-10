@@ -1,7 +1,99 @@
 
 {% extends "base.html" %}
+{% load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock %}
 
 {% block content %}
-<h1> About </h1>
-About Page
-{% endblock content %}
+
+<div class="flex-container wrap center" style="width: 100%; flex-direction: column">
+  <h1 style="margin-bottom: 3rem">About</h1>
+
+  <div id="about-head-box" class="flex-container">
+    <div>
+        {% if admin_profile.profile_pic %}
+            <img src="{% static '/images/profile/dz-profile-picture_square.jpg' %}" class="circular--square profile-image" style="max-width: 12.5rem; height: auto; width: auto;" alt="No Profile Picture">
+        {% else %}
+          <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 12.5rem; height: auto; width: auto;" alt="Insert nice smile here!">
+        {% endif %}
+    </div>
+    <div id="social-buttons-area">
+      <h5> {{ admin_profile.user.first_name }} {{ admin_profile.user.last_name }}</h5>
+      <p id="about-social-links">
+        {% if admin_profile.website_url%}
+          <a href="{{ admin_profile.website_url }}" target="_blank">Website</a>
+        {% endif %}
+        {% if admin_profile.github_url%}
+        <a href="{{ admin_profile.github_url }}" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.linkedin_url%}
+        <a href="{{ admin_profile.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.reddit_url%}
+        <a href="{{ admin_profile.reddit_url }}" target="_blank"><ion-icon name="logo-reddit"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.instagram_url%}
+        <a href="{{ admin_profile.instagram_url }}" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.pinterest_url%}
+        <a href="{{ admin_profile.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.twitter_url%}
+        <a href="{{ admin_profile.twitter_url }}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+        {% endif %}
+        {% if admin_profile.facebook_url%}
+          <a href="{{ admin_profile.facebook_url }}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+        {% endif %}
+      </p>
+      <a href="{% url 'home' %}" class="btn-filled btn-courses" style="width:fit-content">Kurse</a>
+    </div>
+  </div>
+
+  <div id="about-text" style="margin-bottom: 1rem">
+      <p>Hi! Ich bin Dominique, habe Bioinformatik studiert und arbeite als Data Scientist.</p>
+      <p>Dieser Blog entstand, weil ich die Fragen beantworten will, die sich viele vor dem Beginn ihres Bioinformatik Bachelor (oder Master…) Studiums stellen - Auf die man aber nur selten zufriedenstellende Antworten findet.</p>
+      <p>Fragen wie:</br>
+      Was ist die angewandte Bioinformatik?</br>
+      Was macht man damit?</br>
+      Was bedeutet Bioinformatik eigentlich?</br>
+      Warum soll ich das studieren?</br>
+      Welche Methoden und Algorithmen werden verwendet?</br>
+      Wie funktionieren die Algorithmen?</br>
+      Welche Bücher oder andere Informationsquellen gibt es dazu?
+      </p>
+      <p>
+      Auf diesem Blog möchte ich diese Fragen beantworten und einen Einblick in die verschiedenen Methoden geben. Unter Anderem: Alignment Methoden wie den Needleman-Wunsch-Algorithmus und Assembly Methoden.</p>
+      <p>
+      Da ich in meinem Studium feststellen musste, dass es kaum möglich ist, gutes Informationsmaterial zu diesen Themen zu finden, beschloss ich diese selbst zu erstellen.</br>
+      So entstand mein erster eLearning Kurs <a href="" target="_blank">„Bioinformatik Grundlagen – Sequenzanalyse – Alignment Algorithmen mit Python“</a>.</br>
+      Dort stelle ich die wichtigsten Algorithmen vor, zeige in sehr einfachen und verständlichen Visualisierungen wie die Algorithmen ablaufen und wie diese Schritt für Schritt in Python programmiert werden können.
+      </p>
+      <p>
+      Dieser Blog soll aber auch andere Themen behandeln, mit denen ich mich regelmäßig beschäftige.
+      Themen wie Data Science, Entwicklung von Bots und KI, Raspberry Pi Projekte, passives Einkommen mit dem PC und alles Mögliche rund um’s Thema Crypto-Währungen und natürlich viel Python.</br>
+      Wenn dich diese Themen interessieren, bist du hier genau richtig!
+      </p>
+      <p>
+      Schaue gerne auf meinem Blog vorbei, um dich zu diesen Themen zu informieren.
+      Wenn dir meine Arbeit gefällt oder sogar geholfen hat ein Problem zu lösen, findest du hier im Anschluss noch ein paar Möglichkeiten mich bei meiner Arbeit zu unterstützen.
+      </p>
+  </div>
+
+  <hr class="light-turquoise-divider" style="margin-bottom: 3rem">
+
+  <div id="about-support-box">
+    <h1 style="margin-bottom: 3rem">Support</h1>
+    <p>Über diesen Link kannst du mir via Amazon Produkte meiner Wunschliste senden:</p>
+    <a href="https://www.amazon.de/hz/wishlist/ls/2V8W9QPZGHGBS?ref_=wl_share">Amazon</a>
+  </div>
+
+</div>
+
+{%endblock%}
+
+
+
+
+
