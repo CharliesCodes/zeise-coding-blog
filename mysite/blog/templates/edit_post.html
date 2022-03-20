@@ -3,20 +3,26 @@
 {% block title %} Edit Blog Post {% endblock %}
 {% block content %}
 
+<div class="flex-container wrap center" style="width: 100%;">
 
 {% if user.is_authenticated and user.id == post.author.id %}
-
-    <h1> Edit a Blogpost </h1>
-    <div class="form-group w-50 p-3 mx-auto">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.media }}
-            {{ form.as_p }}
-            <button class="btn btn-primary">Edit</button>
-        </form>
+    <div >
+        <h1  style="text-align: center; margin-bottom:3rem;"> Edit a Blogpost </h1>
+        <div class="form-group w-50 p-3 mx-auto">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Edit</button>
+            </form>
+        </div>
     </div>
+
 {% else %}
 <h1> This is a prohibited Area! Leave it or Bill Cipher will take care of it!</h1>
 
 {% endif %}
+
+</div>
+
 {%endblock%}

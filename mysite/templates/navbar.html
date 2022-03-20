@@ -1,46 +1,41 @@
 {% load static %}
 
 <!-- Navigation -->
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img src="{% static 'logo/Logo_ZC_final_hellblau_ohne.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-            Zeise Coding
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
-                <a class="nav-link" href="/">Kurse</a>
-                <a class="nav-link" href="/about">About</a>
-                {% if user.is_authenticated %}
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ user.first_name }} {{ user.last_name }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a>
-                        {% if user.profile.id %}
-                            <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
-                            <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
-                        {% else %}
-                            <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile</a>
-                        {% endif %}
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                </li>
+<div class="flex-container wrap" id="navbar">
+
+    <a class="flex-container wrap" href="/" id="navbar-brand">
+        <img src="{% static 'logo/Logo_ZC_final_hellblau_ohne.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        Zeise Coding
+    </a>
+
+    <!-- Centered link -->
+    <div class="flex-container center" id="navbar-center">
+        <a class="nav-link active" aria-current="page" href="/">Home</a>
+        <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
+        <a class="nav-link" href="/">Kurse</a>
+        <a class="nav-link" href="/about">About</a>
+        <a class="nav-link" href="/impressum">Impressum</a>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ user.first_name }} {{ user.last_name }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a>
+                {% if user.profile.id %}
+                <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
+                <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
                 {% else %}
-                    {% comment %} <a class="nav-link" href="{% url 'login' %}">Login</a> {% endcomment %}
-                    {% comment %} <a class="nav-link" href="{% url 'register' %}">Register</a> {% endcomment %}
+                <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile</a>
                 {% endif %}
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             </div>
-        </div>
-        {% comment %} <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
-        </form> {% endcomment %}
+        </li>
+        {% else %}
+        {% comment %} <a class="nav-link" href="{% url 'login' %}">Login</a> {% endcomment %}
+        {% comment %} <a class="nav-link" href="{% url 'register' %}">Register</a> {% endcomment %}
+        {% endif %}
     </div>
-</nav>
+
+</div>

@@ -17,7 +17,7 @@
             <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
           {% endif %}
         </p>
-        <hr class="post-detail-divider" style="margin-bottom:5rem;">
+        <hr class="blog-divider-top">
 
         <p class="card-text">
           {% if post.header_image %}
@@ -25,7 +25,7 @@
           {% endif %}
           {{ post.content | safe }}
         </p>
-        <hr class="light-turquoise-divider" style="margin-bottom:5rem; margin-top:3rem; width:50%">
+        <hr class="blog-divider-bottom">
       </div>
     </div>
 
@@ -104,7 +104,13 @@
         {% endfor %}
       {% endif %} {% endcomment %}
 
+
+
+
 </div>
 
 
 {% endblock content %}
+{% block extrascripts %}
+<script src="{% static 'js/modalimages.js' %}" type="text/javascript"></script>
+{% endblock extrascripts%}

@@ -145,6 +145,70 @@ header {
   }
 }
 
+/* ---------- NAVBAR -------------------------*/
+
+/* Add a black background color to the top navigation */
+#navbar {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+  flex-direction: row;
+  width:100%;
+}
+
+#navbar-brand{
+  justify-content: flex-start;
+  align-items:center;
+}
+
+#navbar-center{
+  flex-wrap: wrap;
+  justify-content:center;
+  margin: auto;
+}
+
+/* Style the links inside the navigation bar */
+/* .topnav a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+} */
+
+/* Change the color of links on hover */
+/* .topnav a:hover {
+
+} */
+
+/* Add a color to the active/current link */
+/* .topnav a.active {
+}
+
+.topnav-centered{
+
+} */
+
+
+/* Right-aligned section inside the top navigation */
+/* .topnav-right {
+  float: right;
+} */
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+/* @media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+} */ */
 
 /*---------------------------------------------
           REUSABLE COMPONENTS
@@ -278,9 +342,20 @@ a:active {
 
 
 /* ------------DIVIDER---------------------------*/
-.light-turquoise-divider{
+.blog-divider-top, .blog-divider-bottom, .light-turquoise-divider{
   border-color: var(--light-turquoise-color) !important;
   border-top: 0.15rem solid;
+}
+
+
+.blog-divider-top{
+  margin-bottom:3rem;
+  width:50%
+}
+
+.blog-divider-bottom{
+  margin-top:3rem;
+  width:50%
 }
 
 
@@ -329,3 +404,92 @@ a:active {
 /*---------------------------------------------
               BLOGPOSTS
 ---------------------------------------------*/
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}

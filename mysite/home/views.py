@@ -8,3 +8,7 @@ class HomePageView(TemplateView):
 def about_page_view(request):
     admin_profile = get_object_or_404(Profile, id=1)
     return render(request, 'about.html', {'admin_profile':admin_profile})
+
+
+def impressum_page_view(request):
+    return render(request, 'impressum.html')
