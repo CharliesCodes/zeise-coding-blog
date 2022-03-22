@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
 
-<html>
+<html lang="de">
     <head>
         <title>
             {% block title %}
@@ -12,13 +12,25 @@
             {% endblock %}
         </title>
         <meta name="google" content="notranslate" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% comment %} TODO {% endcomment %}
+        <meta name="description" content="">
+        <meta name="keywords" content="">
         <meta name="author" content="Dominique Zeise">
+
+        <meta name="robots" content="index, follow">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous" />
-        <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+        {% comment %} <link href="css/pe-icon-7-stroke.css" rel="stylesheet" /> {% endcomment %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         <link rel="shortcut icon" type="image/png" href="{% static '/logo/logo_hellblau.ico' %}"/>
 

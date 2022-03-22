@@ -17,21 +17,21 @@
         <a class="nav-link" href="/impressum">Impressum</a>
 
         {% if user.is_authenticated %}
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ user.first_name }} {{ user.last_name }}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a>
-                {% if user.profile.id %}
-                <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
-                <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
-                {% else %}
-                <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile</a>
-                {% endif %}
-                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.first_name }} {{ user.last_name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'edit_profile' %}">Settings</a>
+                    {% if user.profile.id %}
+                    <a class="dropdown-item" href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
+                    {% else %}
+                    <a class="dropdown-item" href="{% url 'create_profile_page' %}">Create Profile</a>
+                    {% endif %}
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
             </div>
-        </li>
         {% else %}
         {% comment %} <a class="nav-link" href="{% url 'login' %}">Login</a> {% endcomment %}
         {% comment %} <a class="nav-link" href="{% url 'register' %}">Register</a> {% endcomment %}
