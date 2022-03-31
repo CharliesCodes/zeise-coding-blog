@@ -1,86 +1,17 @@
-aiohttp==3.7.4
-alpaca-trade-api==1.4.3
 asgiref==3.5.0
-astroid==2.9.2
-async-timeout==3.0.1
-attrs==21.4.0
-autopep8==1.6.0
-Bottleneck @ file:///C:/ci/bottleneck_1607557040328/work
-brotlipy==0.7.0
-certifi==2021.10.8
-cffi @ file:///C:/ci_310/cffi_1642682485096/work
-chardet==3.0.4
-charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
-colorama==0.4.4
-conda==4.11.0
-conda-package-handling @ file:///C:/ci/conda-package-handling_1618262410900/work
-cryptography @ file:///C:/ci/cryptography_1639414720302/work
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
-Django==4.0.2
+certifi==2020.6.20
+Django==4.0.3
 django-ckeditor==6.2.0
 django-environ==0.8.1
 django-jquery==3.1.0
 django-js-asset==2.0.0
-et-xmlfile==1.1.0
-fonttools==4.25.0
-greenlet==1.1.2
-idna @ file:///tmp/build/80754af9/idna_1637925883363/work
-IMDbPY==2021.4.18
-isort==5.10.1
-kiwisolver @ file:///C:/ci/kiwisolver_1644962577370/work
-lazy-object-proxy==1.7.1
-lxml==4.7.1
-matplotlib @ file:///C:/ci/matplotlib-suite_1638289827560/work
-mccabe==0.6.1
-menuinst @ file:///C:/ci/menuinst_1631733438520/work
-mkl-fft==1.3.1
-mkl-random @ file:///C:/ci/mkl_random_1626186184308/work
-mkl-service==2.4.0
-msgpack==1.0.2
-multidict==6.0.1
-munkres==1.1.4
-numexpr @ file:///C:/ci/numexpr_1640704337920/work
-numpy @ file:///C:/ci/numpy_and_numpy_base_1634088717532/work
-olefile @ file:///Users/ktietz/demo/mc3/conda-bld/olefile_1629805411829/work
-openpyxl==3.0.9
-packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
-pandas @ file:///C:/ci/pandas_1641443174429/work
-pandas-datareader==0.10.0
-Pillow==8.4.0
-platformdirs==2.4.1
-plotly @ file:///tmp/build/80754af9/plotly_1626182254919/work
-py-cpuinfo==8.0.0
-pycodestyle==2.8.0
-pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
-pygame==2.1.0
-pylint==2.12.2
-pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
-pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
-pypresence==4.2.1
-PySocks @ file:///C:/ci/pysocks_1605307512533/work
-python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
-pytz==2021.3
-pywin32==302
-PyYAML==5.4.1
-requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
-ruamel-yaml-conda @ file:///C:/ci/ruamel_yaml_1616016898638/work
-scipy @ file:///C:/ci/scipy_1641555170412/work
-seaborn @ file:///tmp/build/80754af9/seaborn_1629307859561/work
-sip==4.19.13
-six @ file:///C:/ci/six_1605205404068/work
-SQLAlchemy==1.4.32
+environ==1.0
+Pillow==9.0.1
+pip==21.2.4
+psycopg2==2.9.3
+psycopg2-binary==2.9.1
+setuptools==58.0.4
 sqlparse==0.4.2
-tenacity @ file:///C:/ci/tenacity_1626248381338/work
-toml==0.10.2
-tornado @ file:///C:/ci/tornado_1606924294691/work
-tqdm @ file:///tmp/build/80754af9/tqdm_1635330843403/work
-typing_extensions==4.0.1
-tzdata==2021.5
-urllib3 @ file:///opt/conda/conda-bld/urllib3_1643638302206/work
-websocket-client==1.2.3
-websockets==9.1
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
+tzdata==2022.1
+wheel==0.37.1
 wincertstore==0.2
-wrapt==1.13.3
-yarl==1.7.2
