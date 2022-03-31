@@ -52,7 +52,8 @@ class AddCategoryView(CreateView):
 
 def category_view(request, category):
     category_name = category.replace('-',' ')
-    category_posts = Post.objects.filter(Q(categories__name__contains=category_name))
+    print(Post.objects.filter(categories__name__contains="Crypto"))
+    category_posts = Post.objects.filter(Q(categories__name__icontains=category_name))
     return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
 
 
@@ -60,8 +61,8 @@ def search_post(request):
     if request.method == "POST":
         search = request.POST['post-search-input']
         filtered_posts = Post.objects.filter(
-            Q(title__contains=search) | Q(snippet__contains=search) | Q(content__contains=search) |
-            Q(categories__name__contains=search)).distinct()
+            Q(title__icontains=search) | Q(snippet__icontains=search) | Q(content__icontains=search) |
+            Q(categories__name__icontains=search)).distinct()
         return render(request, 'search_post.html', {'search': search, 'filtered_posts': filtered_posts})
     else:
         return render(request, 'search_post.html', {})
