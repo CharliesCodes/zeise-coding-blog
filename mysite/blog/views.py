@@ -52,6 +52,7 @@ class AddCategoryView(CreateView):
 
 def category_view(request, category):
     category_name = category.replace('-',' ')
+    print(Post.objects.filter(categories__name__contains="Crypto"))
     category_posts = Post.objects.filter(Q(categories__name__icontains=category_name))
     return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
 
@@ -65,6 +66,7 @@ def search_post(request):
         return render(request, 'search_post.html', {'search': search, 'filtered_posts': filtered_posts})
     else:
         return render(request, 'search_post.html', {})
+
 
 def like_post(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
