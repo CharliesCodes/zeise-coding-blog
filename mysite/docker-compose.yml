@@ -12,6 +12,7 @@ services:
       - ./mysite/settings/.env.dev
     depends_on:
       - db
+  # PostgreSQL
   db:
     image: postgres:13.0-alpine
     volumes:

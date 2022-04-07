@@ -17,12 +17,20 @@ environ.Env.read_env()
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+# SECRET_KEY = env('SECRET_KEY')
+# DEBUG = env('DEBUG')
 
-DEBUG = env('DEBUG')
+# ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
+# ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
-ALLOWED_HOSTS = []
+SECRET_KEY='o-*)(kn0)4m&)ikb8w)puy501xshr0(9lk3+3!5t$&-gru+8=o'
+
+DEBUG=True
+
+ALLOWED_HOSTS= []
+
+
+
 
 # ckeditor chooses the media folder as defaul -> media/uploads/
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -80,14 +88,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.postgresql_psycopg2"),
-        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "django-blog"),
+        "NAME": os.environ.get("SQL_DATABASE", "django-blog"),
         "USER": os.environ.get("SQL_USER", "postgres"),
         "PASSWORD": os.environ.get("SQL_PASSWORD", "d3H_123"),
         "HOST": os.environ.get("SQL_HOST", "localhost"),
         "PORT": os.environ.get("SQL_PORT", "5432"),
     }
 }
-
 
 
 # Password validation

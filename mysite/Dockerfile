@@ -11,11 +11,21 @@ ENV PYTHONUNBUFFERED 1
 # install psycopg2 dependencies
 RUN apk update \
     && apk add postgresql-dev gcc python3-dev musl-dev \
-    && apk add jpeg-dev zlib-dev libjpeg
+    && apk add jpeg-dev zlib-dev libjpeg postgresql postgresql-contrib \
+    && apk add nginx curl
 
 # install dependencies
-WORKDIR /mysite
 RUN pip install --upgrade pip
-COPY requirements.txt /mysite/
+COPY requirements.txt .
 RUN pip install -r requirements.txt
-COPY . /mysite/
+
+# copy entrypoint.sh
+COPY ./entrypoint.sh .
+RUN sed -i 's/\r$//g' /usr/src/mysite/entrypoint.sh
+RUN chmod +x /usr/src/mysite/entrypoint.sh
+
+# copy project
+COPY . .
+
+# run entrypoint.sh
+ENTRYPOINT ["/usr/src/mysite/entrypoint.sh"]
