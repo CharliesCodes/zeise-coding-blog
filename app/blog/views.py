@@ -52,7 +52,11 @@ class AddCategoryView(CreateView):
 
 def category_view(request, category):
     category_name = category.replace('-',' ')
+<<<<<<< HEAD:app/blog/views.py
     category_posts = Post.objects.filter(Q(categories__name__icontains=category_name))
+=======
+    category_posts = Post.objects.filter(category=category_name)
+>>>>>>> 18a3b0a98a24ea09dc6aedbbddba5b0781053ebc:mysite/blog/views.py
     return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
 
 
@@ -60,12 +64,11 @@ def search_post(request):
     if request.method == "POST":
         search = request.POST['post-search-input']
         filtered_posts = Post.objects.filter(
-            Q(title__icontains=search) | Q(snippet__icontains=search) | Q(content__icontains=search) |
-            Q(categories__name__icontains=search)).distinct()
+            Q(title__contains=search) | Q(snippet__contains=search) | Q(content__contains=search) |
+            Q(category__contains=search)) # Q(content_upload__contains=search) |
         return render(request, 'search_post.html', {'search': search, 'filtered_posts': filtered_posts})
     else:
         return render(request, 'search_post.html', {})
-
 
 def like_post(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))

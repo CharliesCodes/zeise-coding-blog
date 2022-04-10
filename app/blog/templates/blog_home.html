@@ -50,11 +50,7 @@
                         <ion-icon name="star-outline" id="star-icon"></ion-icon>
                     </div>
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">
-                        {% for category in post.categories.all %}
-                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
-                        {% endfor %}
-                        {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+                    <p class="card-text text-muted h6"><a href="{% url 'category' post.category|slugify %}"> {{ post.category|title }}</a> | {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
                         {% if user.is_authenticated and user.id == post.author.id %}
                             <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
                         {% endif %}
@@ -75,11 +71,7 @@
             <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">
-                        {% for category in post.categories.all %}
-                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
-                        {% endfor %}
-                        {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+                    <p class="card-text text-muted h6"><a href="{% url 'category' post.category|slugify %}"> {{ post.category|title }}</a> | {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
                         {% if user.is_authenticated and user.id == post.author.id %}
                             <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
                         {% endif %}
