@@ -1,0 +1,15 @@
+asgiref==3.5.0
+certifi==2020.6.20
+Django==4.0.3
+django-ckeditor==6.2.0
+django-environ==0.8.1
+django-jquery==3.1.0
+django-js-asset==2.0.0
+environ==1.0
+gunicorn==20.1.0
+Pillow==9.0.1
+psycopg2==2.9.3
+psycopg2-binary==2.9.1
+sqlparse==0.4.2
+tzdata==2022.1
+wincertstore==0.2
