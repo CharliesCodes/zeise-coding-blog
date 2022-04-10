@@ -16,12 +16,8 @@ environ.Env.read_env()
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD:app/mysite/settings.py
 SECRET_KEY = env('SECRET_KEY')
-=======
-SECRET_KEY = env('SECRET_KEY') # "o-*)(kn0)4m&)ikb8w)puy501xshr0(9lk3+3!5t$&-gru+8=o"
 
->>>>>>> 18a3b0a98a24ea09dc6aedbbddba5b0781053ebc:mysite/mysite/settings/settings.py
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
