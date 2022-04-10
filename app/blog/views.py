@@ -52,11 +52,7 @@ class AddCategoryView(CreateView):
 
 def category_view(request, category):
     category_name = category.replace('-',' ')
-<<<<<<< HEAD:app/blog/views.py
     category_posts = Post.objects.filter(Q(categories__name__icontains=category_name))
-=======
-    category_posts = Post.objects.filter(category=category_name)
->>>>>>> 18a3b0a98a24ea09dc6aedbbddba5b0781053ebc:mysite/blog/views.py
     return render(request, 'categories.html', {'category': category_name, 'category_posts': category_posts})
 
 
