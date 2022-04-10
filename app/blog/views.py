@@ -60,8 +60,8 @@ def search_post(request):
     if request.method == "POST":
         search = request.POST['post-search-input']
         filtered_posts = Post.objects.filter(
-            Q(title__contains=search) | Q(snippet__contains=search) | Q(content__contains=search) |
-            Q(category__contains=search)) # Q(content_upload__contains=search) |
+            Q(title__icontains=search) | Q(snippet__icontains=search) | Q(content__icontains=search) |
+            Q(categories__name__icontains=search)).distinct()
         return render(request, 'search_post.html', {'search': search, 'filtered_posts': filtered_posts})
     else:
         return render(request, 'search_post.html', {})
