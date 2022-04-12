@@ -1,26 +1,59 @@
 import os
 import environ
+import json
 from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+CONFIG_PATH = os.path.join(ROOT_DIR, 'config.json')
+with open(CONFIG_PATH) as config_file:
+    config = json.load(config_file)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(ROOT_DIR)
+
+
 # Templates Directory
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-env = environ.Env()
+
+# env = environ.Env()
 # Take environment variables from .env file
-environ.Env.read_env()
+# environ.Env.read_env()
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = config['SECRET_KEY'] #env('SECRET_KEY')
 
-DEBUG = env('DEBUG')
+DEBUG = True
 
-ALLOWED_HOSTS = ['81.169.154.197', 'h2967006.stratoserver.net', 'zeise-coding.de', 'www.zeise-coding.de']
+if DEBUG == True:
+    ALLOWED_HOSTS = ['*']
+    # HTTPS settings
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+    SECURE_SSL_REDIRECT = False
+
+    # HSTS settings
+    SECURE_HSTS_SECONDS = 0
+    SECURE_HSTS_PRELOAD = False
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+else:
+    ALLOWED_HOSTS = ['81.169.154.197', 'h2967006.stratoserver.net', 'zeise-coding.de', 'www.zeise-coding.de']
+    # HTTPS settings
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+
+    # HSTS settings
+    SECURE_HSTS_SECONDS = 31536000 # 1 year
+    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+
 
 # ckeditor chooses the media folder as defaul -> media/uploads/
 CKEDITOR_UPLOAD_PATH = 'uploads/'
@@ -143,13 +176,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-
-# HTTPS settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-
-# HSTS settings
-SECURE_HSTS_SECONDS = 31536000 # 1 year
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
