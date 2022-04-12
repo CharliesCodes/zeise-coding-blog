@@ -18,7 +18,7 @@ environ.Env.read_env()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = env('DEBUG')
+DEBUG = False #env('DEBUG')
 
 ALLOWED_HOSTS = ['81.169.154.197', 'h2967006.stratoserver.net', 'zeise-coding.de', 'www.zeise-coding.de']
 
