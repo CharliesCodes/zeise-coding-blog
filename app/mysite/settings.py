@@ -3,15 +3,8 @@ import environ
 import json
 from pathlib import Path
 
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent
-CONFIG_PATH = os.path.join(ROOT_DIR, 'config.json')
-with open(CONFIG_PATH) as config_file:
-    config = json.load(config_file)
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(ROOT_DIR)
-
 
 # Templates Directory
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
@@ -26,7 +19,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config['SECRET_KEY'] #env('SECRET_KEY')
+SECRET_KEY = "o-*)(kn0)4m&)ikb8w)puy501xshr0(9lk3+3!5t$&-gru+8=o"
 
 DEBUG = False
 
@@ -42,7 +35,7 @@ if DEBUG == True:
     SECURE_HSTS_PRELOAD = False
     SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 else:
-    ALLOWED_HOSTS = ['81.169.154.197', 'h2967006.stratoserver.net', 'zeise-coding.de', 'www.zeise-coding.de']
+    ALLOWED_HOSTS = ['zeise-coding-blog.herokuapp.com', 'zeise-coding.de', 'www.zeise-coding.de']
     # HTTPS settings
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
