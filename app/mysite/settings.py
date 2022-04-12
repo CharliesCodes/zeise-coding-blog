@@ -20,7 +20,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['81.169.154.197']
+ALLOWED_HOSTS = ['81.169.154.197', 'h2967006.stratoserver.net', 'zeise-coding.de', 'www.zeise-coding.de']
 
 # ckeditor chooses the media folder as defaul -> media/uploads/
 CKEDITOR_UPLOAD_PATH = 'uploads/'
