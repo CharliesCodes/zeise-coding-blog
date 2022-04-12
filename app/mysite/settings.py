@@ -1,6 +1,8 @@
 import os
 import environ
 import json
+import cloudinary
+import cloudinary_storage
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -66,6 +68,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'members',
+    # Media Cloudinary
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 
@@ -148,6 +153,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+
+
+if DEBUG == False:
+    # Cloudinary stuff
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+        'API_KEY':  os.getenv('CLOUD_API_KEY'),
+        'API_SECRET': os.getenv('CLOUD_API_SECRET'),
+    }
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 STATIC_URL  = '/static/'
 
 STATICFILES_DIRS = [
@@ -156,6 +174,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static','js'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 
 # Base url to serve media files
