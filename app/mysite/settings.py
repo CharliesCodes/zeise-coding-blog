@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'jquery',
     'home',
@@ -69,9 +70,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'members',
-    # Media Cloudinary
     'cloudinary',
-    'cloudinary_storage',
+
 ]
 
 
