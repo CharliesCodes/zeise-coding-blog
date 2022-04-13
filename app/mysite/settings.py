@@ -3,8 +3,6 @@ import environ
 import json
 import cloudinary
 import cloudinary_storage
-import cloudinary.uploader
-import cloudinary.api
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,7 +37,7 @@ if DEBUG == True:
     SECURE_HSTS_PRELOAD = False
     SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 else:
-    ALLOWED_HOSTS = ['zeise-coding-blog.herokuapp.com', 'zeise-coding.de', 'www.zeise-coding.de', 'localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['zeise-coding-blog.herokuapp.com', 'zeise-coding.de', 'www.zeise-coding.de']
     # HTTPS settings
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -49,6 +47,7 @@ else:
     SECURE_HSTS_SECONDS = 31536000 # 1 year
     SECURE_HSTS_PRELOAD = True
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
 
 
 # ckeditor chooses the media folder as defaul -> media/uploads/
@@ -62,7 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'jquery',
     'home',
@@ -70,8 +68,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'members',
+    # Media Cloudinary
     'cloudinary',
-
+    'cloudinary_storage',
 ]
 
 
@@ -155,14 +154,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-# Cloudinary stuff
-cloudinary.config(
-    cloud_name = os.getenv('CLOUD_NAME'),
-    api_key = os.getenv('CLOUD_API_KEY'),
-    api_secret = os.getenv('CLOUD_API_SECRET')
-)
 
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+if DEBUG == False:
+    # Cloudinary stuff
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.getenv('CLOUD_NAME'),
+        'API_KEY':  os.getenv('CLOUD_API_KEY'),
+        'API_SECRET': os.getenv('CLOUD_API_SECRET'),
+    }
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 STATIC_URL  = '/static/'
@@ -177,6 +178,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 
 # Base url to serve media files
