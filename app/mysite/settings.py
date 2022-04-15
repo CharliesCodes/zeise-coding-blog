@@ -161,7 +161,8 @@ cloudinary.config(
     api_secret = os.getenv('CLOUD_API_SECRET')
 )
 
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 STATIC_URL  = '/static/'
@@ -175,6 +176,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
+
+#* Whitenoise seems to be buggy -> Error 500 on Heroku
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

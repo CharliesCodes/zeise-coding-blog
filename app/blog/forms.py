@@ -1,18 +1,14 @@
 from django import forms
-from .models import Post, Category
+from .models import Post, Category, Picture
 from django.db import models
-
-
-# # maybe make this a list in future if errors appear
-# category_choices = Category.objects.all().values_list('name', 'name')
-
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ('title', 'author','content', 'categories', 'snippet', 'status', 'header_image', 'pin') #'content_upload',  'category',
+        fields = ('title', 'author','content', 'categories', 'snippet', 'status', 'header_image', 'pin')
         slug = models.SlugField(max_length=200, unique=True)
+        images = Picture
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.TextInput(attrs={'class': 'form-control', 'value':'', 'id':'author_field_id', 'type':'hidden'}),

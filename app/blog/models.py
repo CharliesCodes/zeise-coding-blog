@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.template.defaultfilters import slugify
+from cloudinary.models import CloudinaryField
 
 
 
@@ -11,6 +12,9 @@ STATUS = (
     (0, "Draft"),
     (1, "Publish")
 )
+
+class Picture(models.Model):
+    image = CloudinaryField('image')
 
 
 class Category(models.Model):
