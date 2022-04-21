@@ -13,11 +13,7 @@
 
   <div id="about-head-box" class="flex-container">
     <div>
-        {% if admin_profile.profile_pic %}
-            <img src="{% static '/images/profile/dz-profile-picture_square.jpg' %}" class="circular--square profile-image" style="max-width: 12.5rem; height: auto; width: auto;" alt="No Profile Picture">
-        {% else %}
-          <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 12.5rem; height: auto; width: auto;" alt="Insert nice smile here!">
-        {% endif %}
+      <img src="https://res.cloudinary.com/hpi3kkgtu/image/upload/c_scale,f_jpg,q_auto:eco,r_0,w_400/v1650447905/Profile-Images/dominique-zeise-profile-image.jpg" class="circular--square profile-image" alt="Dominique Zeise Profile-Image with nice Smile!">
     </div>
     <div id="social-buttons-area">
       <h5> {{ admin_profile.user.first_name }} {{ admin_profile.user.last_name }}</h5>

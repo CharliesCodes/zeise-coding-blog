@@ -18,8 +18,12 @@ for (var i = 0; i < images.length; i++) {
     }
 }
 
-var span = document.getElementsByClassName("close")[0];
 
-span.onclick = function () {
-    modal.style.display = "none";
+window.onload = function () {
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
 }
+

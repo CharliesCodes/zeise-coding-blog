@@ -39,7 +39,7 @@ if DEBUG == True:
     SECURE_HSTS_PRELOAD = False
     SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 else:
-    ALLOWED_HOSTS = ['zeise-coding-blog.herokuapp.com', 'zeise-coding.de', 'www.zeise-coding.de', 'localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['127.0.0.1','localhost', 'zeise-coding-blog.herokuapp.com', 'zeise-coding.de', 'www.zeise-coding.de']
     # HTTPS settings
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -62,15 +62,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
+    # dont mess up next rows order! https://pypi.org/project/django-cloudinary-storage/
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'jquery',
     'home',
     'blog',
     'ckeditor',
     'ckeditor_uploader',
     'members',
-    'cloudinary',
 ]
 
 
@@ -154,7 +155,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-# Cloudinary stuff
 cloudinary.config(
     cloud_name = os.getenv('CLOUD_NAME'),
     api_key = os.getenv('CLOUD_API_KEY'),
