@@ -41,13 +41,13 @@
   <br>
 
     <div class="row warp" style="margin-bottom: 3rem; padding: 0 1.25rem 0 1.25rem">
-        <div class="col-3">
+        {% comment %} <div class="col-3">
           {% if post.author.profile.profile_pic %}
             <img src="{{ post.author.profile.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
           {% else %}
             <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
           {% endif %}
-        </div>
+        </div> {% endcomment %}
         <div class="col-9">
           <h5 class="card-title">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
           <p class="flex-container warp" style="align-items:center">
