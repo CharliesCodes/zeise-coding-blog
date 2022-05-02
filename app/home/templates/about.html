@@ -84,7 +84,23 @@
     <h1 style="margin-bottom: 3rem">Support me</h1>
     <p>Über diesen Link kannst du mir via Amazon Produkte meiner Wunschliste senden:</p>
     <a target="_blank" href="https://www.amazon.de/hz/wishlist/genericItemsPage/2V8W9QPZGHGBS?type=wishlist&filter=unpurchased&sort=priority&viewType=grid">Amazon</a>
-    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="zeisecoding" data-color="#45A29E" data-emoji=""  data-font="Lato" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#FFDD00" ></script>
+    <p>Der nachfolgende Link bietet dir die Möglichkeit zu spenden</p>
+    <div id="donate-button-container">
+      <div id="donate-button"></div>
+      <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+      <script>
+      PayPal.Donation.Button({
+      env:'production',
+      hosted_button_id:'9PDTFHP5X9U7N',
+      image: {
+      src:'https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif',
+      alt:'Spenden mit dem PayPal-Button',
+      title:'PayPal - The safer, easier way to pay online!',
+      }
+      }).render('#donate-button');
+      </script>
+    </div>
+
   </div>
 
 </div>
