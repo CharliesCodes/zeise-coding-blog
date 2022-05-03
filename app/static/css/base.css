@@ -70,9 +70,9 @@ html {
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex !important;
+    flex-direction: column  !important;
+    min-height: 100vh  !important;
     background: var(--black-color);
     font-family: var(--sans-serif-fonts);
     font-size: var(--text-size);
