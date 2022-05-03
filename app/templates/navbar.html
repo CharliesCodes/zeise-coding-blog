@@ -13,8 +13,6 @@
         <a class="nav-link active" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
         <a class="nav-link" href="/">Kurse</a>
-        <a class="nav-link" href="/about">About</a>
-        <a class="nav-link" href="/impressum">Impressum</a>
 
         {% if user.is_authenticated %}
             <div class="dropdown">

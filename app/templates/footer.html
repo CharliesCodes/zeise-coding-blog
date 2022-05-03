@@ -1,0 +1,83 @@
+{% load static %}
+
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+
+{% comment %} <footer class="footer center">
+    <ul>
+        <li>Made with Love and Django &copy;</li>
+        <li class="item"><a href="/impressum">Impressum</a></li>
+    </ul>
+</footer> {% endcomment %}
+
+<div class="container"></div>
+    <footer>
+      <!-- Footer main -->
+      {% comment %} <section class="ft-main">
+        <div class="ft-main-item">
+          <h3 class="ft-title">About</h3>
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Resources</h3>
+          <ul>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">eBooks</a></li>
+            <li><a href="#">Webinars</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Contact</h3>
+          <ul>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Sales</a></li>
+            <li><a href="#">Advertise</a></li>
+          </ul>
+        </div>
+        <div class="ft-main-item">
+          <h3 class="ft-title">Stay Updated</h3>
+          <p>Subscribe to our newsletter to get our latest news.</p>
+          <form>
+            <input type="email" name="email" placeholder="Enter email address">
+            <input type="submit" value="Subscribe">
+          </form>
+        </div>
+      </section> {% endcomment %}
+
+      <!-- Footer social -->
+      {% comment %} <section class="ft-social">
+        <ul class="ft-social-list">
+          <li><a href="#"><ion-icon name="logo-github"></a></li>
+          <li><a href="#"><ion-icon name="logo-linkedin"></a></li>
+          <li><a href="#"><ion-icon name="logo-reddit"></a></li>
+          <li><a href="#"><ion-icon name="logo-instagram"></a></li>
+          <li><a href="#"><ion-icon name="logo-pinterest"></a></li>
+          <li><a href="#"><ion-icon name="logo-twitter"></a></li>
+          <li><a href="#"><ion-icon name="logo-facebook"></a></li>
+          <li><a href="#"><ion-icon name="logo-youtube"></a></li>
+          <li><a href="#"><ion-icon name="logo-udemy"></a></li>
+        </ul>
+      </section> {% endcomment %}
+
+      <!-- Footer legal -->
+      <section class="ft-legal">
+        <ul class="ft-legal-list">
+            <li><a href="/about">About</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+          <li style="display: flex; align-items: center">Made with&nbsp<ion-icon size="small" name="heart-outline"></ion-icon>&nbspand Django &copy;</li>
+          {% comment %} <li><a href="#">Datenschutzerklärung</a></li> {% endcomment %}
+          {% comment %} <li>&copy; 2019 Copyright Nowrap Inc.</li> {% endcomment %}
+        </ul>
+      </section>
+    </footer>
