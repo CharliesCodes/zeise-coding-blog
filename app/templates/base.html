@@ -43,7 +43,7 @@
 
     <body>
 
-        <div class="basic">
+        <div>
             {% include "./navbar.html" %}
             <!-- Navbar -->
         </div>
@@ -54,13 +54,15 @@
             {% endblock content %}
         </div>
 
+
+        <!-- Footer -->
+        {% include "./footer.html" %}
+
+
         {% block extrascripts %}
         <!-- Extra Scripts like JS -->
         {% endblock %}
 
-
-        {% include "./footer.html" %}
-        <!-- Footer -->
     </body>
 
 </html>

@@ -70,9 +70,9 @@ html {
 }
 
 body {
-    display: flex !important;
-    flex-direction: column  !important;
-    min-height: 100vh  !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     background: var(--black-color);
     font-family: var(--sans-serif-fonts);
     font-size: var(--text-size);
@@ -205,9 +205,6 @@ h3 {
 
 /* ------------PARAGRAPHS------------------------*/
 
-p {
-
-}
 
 /* ------------HORIZONTAL RULE------------------------*/
 
