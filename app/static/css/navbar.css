@@ -1,0 +1,46 @@
+
+nav {
+    position: relative;
+    background-color: transparent;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+    padding: 20px;
+}
+
+#navbar-left {
+}
+
+#brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 5px;
+}
+
+#navbar-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-between;
+    gap: 10px 30px;
+}
+
+#nabar-right{
+}
+
+
+
+.dropdown-content {
+    display: none;
+}
+
+#nav-user-dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+}

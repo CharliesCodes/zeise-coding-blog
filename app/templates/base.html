@@ -5,6 +5,7 @@
 
 
 <html lang="de">
+
     <head>
         <title>
             {% block title %}
@@ -43,16 +44,15 @@
 
     <body>
 
-        <div>
-            {% include "./navbar.html" %}
-            <!-- Navbar -->
-        </div>
+        {% include "./navbar.html" %}
+        <!-- Navbar -->
 
-        <div class="page-content center" style="padding-top:5%">
+
+        <main class="page-content center" style="margin-top:5%" role="main">
             {% block content %}
             <!-- Content -->
             {% endblock content %}
-        </div>
+        </main>
 
 
         <!-- Footer -->

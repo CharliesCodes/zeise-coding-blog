@@ -60,19 +60,21 @@
   box-sizing: border-box;
 }
 
-html, body {
+html{
   position: relative;
   height: 100%;
+  font-size:100%;
 }
 
-html {
-    font-size:100%;
+
+body{
+  min-height: 100vh;
 }
+
 
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     background: var(--black-color);
     font-family: var(--sans-serif-fonts);
     font-size: var(--text-size);
@@ -147,28 +149,6 @@ header {
       margin: auto;
   }
 }
-/* ---------- NAVBAR -------------------------*/
-
-/* Add a black background color to the top navigation */
-#navbar {
-  position: relative;
-  background-color: transparent;
-  overflow: hidden;
-  flex-direction: row;
-  width: 100%;
-}
-
-#navbar-brand {
-  justify-content: flex-start;
-  align-items: center;
-}
-
-#navbar-center {
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-}
-
 
 /*---------------------------------------------
           REUSABLE COMPONENTS
