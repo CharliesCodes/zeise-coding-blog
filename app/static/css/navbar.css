@@ -13,6 +13,7 @@ nav {
 }
 
 #navbar-left {
+    flex: 1;
 }
 
 #brand {
@@ -29,9 +30,11 @@ nav {
     align-items: center;
     align-content: space-between;
     gap: 10px 30px;
+    flex: 1;
 }
 
-#nabar-right{
+#navbar-right{
+    flex: 1;
 }
 
 
