@@ -137,6 +137,8 @@ header {
       align-items: center;
       width: 40%;
       margin: auto;
+      flex-direction: column;
+      justify-content: flex-start;
   }
 }
 
@@ -147,6 +149,8 @@ header {
       align-items: center;
       width: 100%;
       margin: auto;
+      flex-direction: column;
+      justify-content: flex-start;
   }
 }
 

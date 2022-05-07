@@ -13,25 +13,19 @@ Zeise Coding - Blog und Kurse | alles rundum Python
 
 
 {% block content %}
-<div class="flex-container wrap container">
 
-    <div class="row warp" style="margin-bottom: 3rem">
-        <div class="col-8">
-            <h1>Data-Science, Bioinformatik, Python und schlechte Bots!</h1>
-        </div>
-        <div class="col-4">
-            <img src="https://res.cloudinary.com/hpi3kkgtu/image/upload/c_scale,f_jpg,q_auto:eco,r_0,w_200/v1650447905/Profile-Images/dominique-zeise-profile-image.jpg" class="circular--square profile-image" alt="Dominique Zeise Profile-Image with nice Smile!">
-        </div>
-    </div>
+<h1 style="margin-bottom: 5rem; text-align:center">Data-Science, Bioinformatik, Python und schlechte Bots!</h1>
+<h2 style="margin-bottom: 2.5rem; text-align:center">Dies und viel mehr erwartet dich hier.</h2>
 
-    <h2 style="margin-bottom: 1.5rem">Dies und viel mehr erwartet dich hier.</h2>
-    <p style="width:80%; margin-bottom: 3rem">Hi! Ich bin Dominique Zeise, habe Bioinformatik studiert und arbeite als Data Scientist.</br>Wenn du dich für Bioinformatik, Datenanalysen, Python, Raspberry Pi Projekte und die Entwicklung schlechter Bots interessierst, bist du hier genau richtig.</p>
 
-    <div class="spaced-btns" style="width:80%">
-        <a href="{% url 'home' %}" class="btn-filled btn-courses">Kurse</a>
-        <a href="{% url 'blog-home' %}" class="btn-bordered btn-blog">Blog</a>
-    </div>
+<div class="flex-container welcome">
+    <img src="https://res.cloudinary.com/hpi3kkgtu/image/upload/c_scale,f_jpg,q_auto:eco,r_0,w_200/v1650447905/Profile-Images/dominique-zeise-profile-image.jpg" class="circular--square profile-image" alt="Dominique Zeise Profile-Image with nice Smile!">
+    <p>Hi! Ich bin Dominique Zeise, habe Bioinformatik studiert und arbeite als Data Scientist.</br>Wenn du dich für Bioinformatik, Datenanalysen, Python, Raspberry Pi Projekte und die Entwicklung schlechter Bots interessierst, bist du hier genau richtig.</p>
+</div>
 
+<div class="spaced-btns" style="width:100%; margin:auto">
+    <a href="{% url 'home' %}" class="btn-filled btn-courses">Kurse</a>
+    <a href="{% url 'blog-home' %}" class="btn-bordered btn-blog">Blog</a>
 </div>
 
 {% endblock content %}
