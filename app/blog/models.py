@@ -37,6 +37,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name="posts")
     header_image=models.ImageField(blank=True, null=True, upload_to="images/")
+    # seotitle= models.CharField(max_length=60, unique=True)
     content = RichTextUploadingField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
