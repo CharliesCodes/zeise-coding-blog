@@ -5,7 +5,8 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
-
+from django.contrib.contenttypes.fields import GenericRelation
+from hitcount.models import HitCountMixin, HitCount
 
 
 STATUS = (
@@ -44,6 +45,13 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, default=None, blank=True, related_name='likes')
     snippet = models.CharField(max_length=200)
     pin = models.BooleanField(default=False)
+    hit_count_generic = GenericRelation(
+        HitCount, object_id_field='object_pk',
+        related_query_name='hit_count_generic_relation'
+    )
+
+    def current_hit_count(self):
+        return self.hit_count.hits
 
     class Meta:
         ordering = ['-created_on']

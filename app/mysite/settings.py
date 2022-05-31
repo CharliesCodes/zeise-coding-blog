@@ -67,11 +67,14 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+	'django.contrib.sitemaps',
     # dont mess up next rows order! https://pypi.org/project/django-cloudinary-storage/
     'django.contrib.staticfiles',
     'cloudinary_storage',
     'cloudinary',
     'jquery',
+    'hitcount',
     'home',
     'blog',
     'ckeditor',
@@ -79,6 +82,7 @@ INSTALLED_APPS = [
     'members',
 ]
 
+SITE_ID = 1
 
 
 MIDDLEWARE = [

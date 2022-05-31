@@ -5,6 +5,7 @@ from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.db.models import Q
+from hitcount.views import HitCountDetailView
 
 
 class PostList(ListView):
@@ -18,12 +19,20 @@ class PostList(ListView):
 
         context['categories_menu'] = categories_menu
         context['pinned_posts'] = pinned_posts
+
         return context
 
 class PostDetail(DetailView):
     model = Post
     template_name = 'post_detail.html'
+    count_hit = True
 
+    def get_context_data(self, **kwargs):
+        context = super(PostDetail, self).get_context_data(**kwargs)
+        context.update({
+        'popular_posts': Post.objects.order_by('-hit_count_generic__hits')[:3],
+        })
+        return context
 
 class AddPostView(CreateView):
     model = Post
