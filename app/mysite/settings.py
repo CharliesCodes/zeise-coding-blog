@@ -6,6 +6,11 @@ import cloudinary_storage
 import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
+import dj_database_url
+
+# reading .env file
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +28,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "o-*)(kn0)4m&)ikb8w)puy501xshr0(9lk3+3!5t$&-gru+8=o"
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
@@ -112,6 +117,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
+
 DATABASES = {
     "default": {
         "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
@@ -119,6 +126,7 @@ DATABASES = {
     }
 }
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
