@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0017_category_alter_post_category'),
+        ("blog", "0017_category_alter_post_category"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='category',
-            options={'ordering': ['name']},
+            name="category",
+            options={"ordering": ["name"]},
         ),
     ]

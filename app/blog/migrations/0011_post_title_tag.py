@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0010_remove_post_title_tag'),
+        ("blog", "0010_remove_post_title_tag"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='title_tag',
-            field=models.CharField(default='titel', max_length=200),
+            model_name="post",
+            name="title_tag",
+            field=models.CharField(default="titel", max_length=200),
         ),
     ]

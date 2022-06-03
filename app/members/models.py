@@ -20,9 +20,8 @@ class Profile(models.Model):
     facebook_url = models.CharField(max_length=200, blank=True, null=True)
     # social_media = [website_url, github_url, linkedin_url, reddit_url, instagram_url,pinterest_url, twitter_url, facebook_url]
 
-
     def __str__(self):
         return str(self.user)
 
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse("home")

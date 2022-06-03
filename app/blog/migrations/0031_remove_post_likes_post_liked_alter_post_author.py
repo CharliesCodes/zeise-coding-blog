@@ -9,22 +9,31 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('blog', '0030_like'),
+        ("blog", "0030_like"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
-            name='likes',
+            model_name="post",
+            name="likes",
         ),
         migrations.AddField(
-            model_name='post',
-            name='liked',
-            field=models.ManyToManyField(blank=True, default=None, related_name='liked', to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="liked",
+            field=models.ManyToManyField(
+                blank=True,
+                default=None,
+                related_name="liked",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='author',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='author', to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="author",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="author",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]

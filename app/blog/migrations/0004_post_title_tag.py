@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0003_post_content_upload'),
+        ("blog", "0003_post_content_upload"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='title_tag',
-            field=models.CharField(default='ZC Blog | <django.db.models.fields.CharField>', max_length=200, unique=True),
+            model_name="post",
+            name="title_tag",
+            field=models.CharField(
+                default="ZC Blog | <django.db.models.fields.CharField>",
+                max_length=200,
+                unique=True,
+            ),
         ),
     ]

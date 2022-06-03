@@ -16,21 +16,69 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Profile',
+            name="Profile",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('bio', ckeditor_uploader.fields.RichTextUploadingField(blank=True, null=True)),
-                ('snippet', ckeditor_uploader.fields.RichTextUploadingField(blank=True, max_length=200, null=True)),
-                ('profile_pic', models.ImageField(blank=True, null=True, upload_to='images/profile/')),
-                ('website_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('github_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('linkedin_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('reddit_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('instagram_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('pinterest_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('twitter_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('facebook_url', models.CharField(blank=True, max_length=200, null=True)),
-                ('user', models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "bio",
+                    ckeditor_uploader.fields.RichTextUploadingField(
+                        blank=True, null=True
+                    ),
+                ),
+                (
+                    "snippet",
+                    ckeditor_uploader.fields.RichTextUploadingField(
+                        blank=True, max_length=200, null=True
+                    ),
+                ),
+                (
+                    "profile_pic",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="images/profile/"
+                    ),
+                ),
+                (
+                    "website_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                ("github_url", models.CharField(blank=True, max_length=200, null=True)),
+                (
+                    "linkedin_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                ("reddit_url", models.CharField(blank=True, max_length=200, null=True)),
+                (
+                    "instagram_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "pinterest_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "twitter_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "facebook_url",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                (
+                    "user",
+                    models.OneToOneField(
+                        null=True,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

@@ -13,5 +13,5 @@ class PostSitemap(Sitemap):
     def lastmod(self, obj):
         return obj.updated_on
 
-    def location(self,obj):
-        return '/blog/%s' % (obj.slug)
+    def location(self, obj):
+        return "/blog/%s" % (obj.slug)

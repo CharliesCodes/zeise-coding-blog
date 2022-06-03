@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0032_remove_post_liked_post_likes_delete_like'),
+        ("blog", "0032_remove_post_liked_post_likes_delete_like"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='snippet',
+            model_name="profile",
+            name="snippet",
             field=models.TextField(blank=True, max_length=200, null=True),
         ),
     ]

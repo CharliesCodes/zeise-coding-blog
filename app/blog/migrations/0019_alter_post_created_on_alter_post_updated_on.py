@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0018_alter_category_options'),
+        ("blog", "0018_alter_category_options"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='created_on',
+            model_name="post",
+            name="created_on",
             field=models.DateField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='updated_on',
+            model_name="post",
+            name="updated_on",
             field=models.DateField(auto_now_add=True),
         ),
     ]

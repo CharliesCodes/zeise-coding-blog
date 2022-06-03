@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0021_post_likes_alter_post_author_alter_post_category'),
+        ("blog", "0021_post_likes_alter_post_author_alter_post_category"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='snippet',
-            field=models.CharField(default='Click Link Above to read the Post', max_length=200),
+            model_name="post",
+            name="snippet",
+            field=models.CharField(
+                default="Click Link Above to read the Post", max_length=200
+            ),
         ),
     ]

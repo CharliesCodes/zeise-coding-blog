@@ -6,23 +6,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0014_remove_post_title_tag_alter_post_title'),
+        ("blog", "0014_remove_post_title_tag_alter_post_title"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200, unique=True)),
             ],
             options={
-                'ordering': ['-name'],
+                "ordering": ["-name"],
             },
         ),
         migrations.AddField(
-            model_name='post',
-            name='category',
-            field=models.CharField(default='Coding', max_length=200),
+            model_name="post",
+            name="category",
+            field=models.CharField(default="Coding", max_length=200),
         ),
     ]

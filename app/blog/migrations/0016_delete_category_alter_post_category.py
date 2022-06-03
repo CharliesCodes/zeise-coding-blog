@@ -6,16 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0015_category_post_category'),
+        ("blog", "0015_category_post_category"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='Category',
+            name="Category",
         ),
         migrations.AlterField(
-            model_name='post',
-            name='category',
-            field=models.IntegerField(choices=[(0, 'Draft'), (1, 'Publish')], default=4),
+            model_name="post",
+            name="category",
+            field=models.IntegerField(
+                choices=[(0, "Draft"), (1, "Publish")], default=4
+            ),
         ),
     ]

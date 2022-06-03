@@ -7,18 +7,22 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0033_profile_snippet'),
+        ("blog", "0033_profile_snippet"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='profile',
-            name='bio',
-            field=ckeditor_uploader.fields.RichTextUploadingField(blank=True, null=True),
+            model_name="profile",
+            name="bio",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                blank=True, null=True
+            ),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='snippet',
-            field=ckeditor_uploader.fields.RichTextUploadingField(blank=True, max_length=200, null=True),
+            model_name="profile",
+            name="snippet",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                blank=True, max_length=200, null=True
+            ),
         ),
     ]

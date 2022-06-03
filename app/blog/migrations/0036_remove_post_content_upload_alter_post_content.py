@@ -7,17 +7,19 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0035_delete_profile'),
+        ("blog", "0035_delete_profile"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
-            name='content_upload',
+            model_name="post",
+            name="content_upload",
         ),
         migrations.AlterField(
-            model_name='post',
-            name='content',
-            field=ckeditor_uploader.fields.RichTextUploadingField(blank=True, null=True),
+            model_name="post",
+            name="content",
+            field=ckeditor_uploader.fields.RichTextUploadingField(
+                blank=True, null=True
+            ),
         ),
     ]

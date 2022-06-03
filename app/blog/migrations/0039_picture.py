@@ -7,15 +7,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0038_post_categories'),
+        ("blog", "0038_post_categories"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Picture',
+            name="Picture",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', cloudinary.models.CloudinaryField(max_length=255, verbose_name='image')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "image",
+                    cloudinary.models.CloudinaryField(
+                        max_length=255, verbose_name="image"
+                    ),
+                ),
             ],
         ),
     ]

@@ -8,13 +8,18 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('blog', '0028_post_pin'),
+        ("blog", "0028_post_pin"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='likes',
-            field=models.ManyToManyField(blank=True, default=None, related_name='blog_posts', to=settings.AUTH_USER_MODEL),
+            model_name="post",
+            name="likes",
+            field=models.ManyToManyField(
+                blank=True,
+                default=None,
+                related_name="blog_posts",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
