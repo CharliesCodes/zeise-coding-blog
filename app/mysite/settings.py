@@ -80,6 +80,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'members',
+    'google_analytics'
 ]
 
 SITE_ID = 1
@@ -206,3 +207,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+GOOGLE_ANALYTICS = {
+    'google_analytics_id': 'G-WJQLFSV623',
+}

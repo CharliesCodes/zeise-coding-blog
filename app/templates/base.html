@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load google_analytics_tags %}
 
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
@@ -12,6 +13,11 @@
             Zeise Coding
             {% endblock %}
         </title>
+
+        <div style="display:none">
+            <img src="{% google_analytics %}" width="0" height="0" />
+        </div>
+
         <meta name="google" content="notranslate" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8" />
