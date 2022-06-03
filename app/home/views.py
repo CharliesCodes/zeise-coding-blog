@@ -20,3 +20,7 @@ def about_page_view(request):
 
 def impressum_page_view(request):
     return render(request, "impressum.html")
+
+
+def data_security_view(request):
+    return render(request, "data_protection.html")
