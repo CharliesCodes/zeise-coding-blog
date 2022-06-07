@@ -49,10 +49,20 @@
 
 }
 
+/* Marking / Selection Colors */
 *::selection {
-    background: var(--black-color);
-    color: var(--gray-color);
+  background: var(--gray-color);
+  color: black;
+  /* WebKit/Blink Browsers */
 }
+
+::-moz-selection {
+  background: var(--gray-color);
+  color: black;
+  /* Gecko Browsers */
+}
+
+
 
 * {
   margin: 0;
@@ -125,7 +135,6 @@ header {
     box-shadow: 0 16px 48px #E3E7EB;
     padding-top: 10px;
 }
-
 
 /* ---------- CONTENT -------------------------*/
 
