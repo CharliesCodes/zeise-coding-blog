@@ -20,10 +20,14 @@ Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
     {% comment %} <h1 style="margin-bottom: 3.5rem; text-align:center;">Blog</h1> {% endcomment %}
 
     {% if categories_menu %}
-    <div class="flex-container wrap center btn-group-wrap" role="group" aria-label="Basic example" style="margin-bottom: 5rem">
+    <div style="margin-bottom: 5rem">
+        <ul class="categories__menu">
         {% for item in categories_menu %}
-        <a href="{% url 'category' item|slugify %}" class="btn-blog-category btn">{{ item|title }}</a>
+            <li>
+                <a href="{% url 'category' item|slugify %}" class="btn-blog-category btn">{{ item|title }}</a>
+            </li>
         {% endfor %}
+        </ul>
         <div class="input-groupcenter">
             <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search-post' %}">
                 {% csrf_token %}

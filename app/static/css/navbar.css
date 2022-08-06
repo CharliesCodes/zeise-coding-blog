@@ -1,15 +1,85 @@
 
-nav {
+.nav {
     position: relative;
-    background-color: transparent;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    align-content: space-between;
     padding: 20px;
+}
+
+.nav__left {
+    width: 160px;
+}
+
+.nav__menu {
+    gap: 1rem;
+}
+
+.nav__burger-menu {
+    width: 160px;
+    opacity: 0;
+
+    color: var(--gray-turquoise-color);
+}
+
+.menu-toggle__icons {
+    position: relative;
+    z-index: 20;
+}
+
+.icon--close {
+    display: none;
+}
+
+#menu-toggle,
+#menu-toggle:checked ~ .menu-toggle__icons > .icon--burger {
+  display: none;
+}
+
+#menu-toggle:checked ~ .menu-toggle__icons > .icon--close {
+  display: block;
+}
+
+.menu__body {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4em;
+  height: 4em;
+  margin: 0;
+  padding: 0;
+  background-color: var(--dark-gray-color);
+  border-bottom-left-radius: 100%;
+  box-shadow: 3px 3px 7px rgba(40, 40, 40, 0.2);
+  z-index: 10;
+  -webkit-animation: checkboxUncheckedAnimation 0.35s both;
+          animation: checkboxUncheckedAnimation 0.35s both;
+}
+
+#menu-toggle:checked ~ .menu__body {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+ -webkit-animation: checkboxCheckedAnimation 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+         animation: checkboxCheckedAnimation 1s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+}
+
+
+.menu__body__nav-items {
+    display: none;
+}
+
+#menu-toggle:checked ~ .menu__body > .menu__body__nav-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 70px;
+    padding-right: 60px;
+    height: 100%;
+    width: 100%;
+    gap: 24px;
+}
+
+.menu__body__nav-items {
+    font-size: var(--h2-size);
 }
 
 #navbar-left {
@@ -37,8 +107,6 @@ nav {
     flex: 1;
 }
 
-
-
 .dropdown-content {
     display: none;
 }
@@ -47,3 +115,64 @@ nav {
     display: block;
     position: absolute;
 }
+
+/* For extremely small screen devices (595px and below) */
+@media only screen and (max-width: 595px) {
+    .nav__menu {
+       display: none;
+       width: unset;
+    }
+
+    .nav__burger-menu {
+        opacity: 1;
+        width: unset;
+    }
+}
+
+@-webkit-keyframes checkboxCheckedAnimation {
+  50% {
+    width: 100vw;
+    height: 100vh;
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+@keyframes checkboxCheckedAnimation {
+  50% {
+    width: 100vw;
+    height: 100vh;
+  }
+  100% {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+@-webkit-keyframes checkboxUncheckedAnimation {
+  0% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+@keyframes checkboxUncheckedAnimation {
+  0% {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+
+/* Small screen devices (600px and above) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium screen devices (768px and above) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Big screen devices (889px and above) */
+/* @media only screen and (min-width: 889px) {...} */
+
+/* Extra big screen devices (1200px and above) */
+/* @media only screen and (min-width: 1200px) {...}  */

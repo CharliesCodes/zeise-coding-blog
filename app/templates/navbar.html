@@ -4,49 +4,75 @@
 <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 {% endblock %}
 
+<nav class="flex nav">
+  <!-- Left -->
+  <div class="nav__left">
+    <a id="brand" href="/" id="navbar-brand">
+      <img
+        src="{% static 'logo/Logo_ZC_final_blau_ohne.png' %}"
+        width="30"
+        height="30"
+        class="d-inline-block align-top"
+        alt="Zeise Coding Logo"
+      />
+      <span>Zeise Coding</span>
+    </a>
+  </div>
 
-<nav>
+  <!-- Centered -->
+  <div>
+    <ul class="flex nav__menu">
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="{% url 'blog-home' %}">Blog</a>
+        </li>
+        <li>
+            <a href="/">Kurse</a>
+        </li>
+    </ul>
 
-    <!-- Left -->
-    <div id="navbar-left">
-        <a id="brand" href="/" id="navbar-brand">
-            <img src="{% static 'logo/Logo_ZC_final_blau_ohne.png' %}" width="30" height="30" class="d-inline-block align-top" alt="Zeise Coding Logo">
-            <span>Zeise Coding</span>
-        </a>
+    {% if user.is_authenticated %}
+    <div id="nav-user-dropdown">
+      <a href="#">{{ user.first_name }} {{ user.last_name }}</a>
+      <ion-icon size="small" name="arrow-dropdown"></ion-icon>
+      <div class="dropdown-content">
+        <a href="{% url 'edit_profile' %}">Settings</a>
+        {% if user.profile.id %}
+        <a href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
+        <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
+        {% else %}
+        <a href="{% url 'create_profile_page' %}">Create Profile</a>
+        {% endif %}
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
     </div>
-
-
-    <!-- Centered -->
-    <div id="navbar-center">
-        <a href="/">Home</a>
-        <a href="{% url 'blog-home' %}">Blog</a>
-        <a href="/">Kurse</a>
-
-        {% if user.is_authenticated %}
-            <div id="nav-user-dropdown">
-                <a href="#">{{ user.first_name }} {{ user.last_name }}</a>
-                <ion-icon size="small" name="arrow-dropdown"></ion-icon>
-                <div class="dropdown-content">
-                    <a href="{% url 'edit_profile' %}">Settings</a>
-                    {% if user.profile.id %}
-                    <a href="{% url 'show_profile_page' user.profile.id %}">Profile</a>
-                    <a href="{% url 'edit_profile_page' user.profile.id %}">Edit Profile</a>
-                    {% else %}
-                    <a href="{% url 'create_profile_page' %}">Create Profile</a>
-                    {% endif %}
-                    <a href="{% url 'logout' %}">Logout</a>
-                </div>
-            </div>
         {% else %}
         {% comment %} <a class="nav-link" href="{% url 'login' %}">Login</a> {% endcomment %}
         {% comment %} <a class="nav-link" href="{% url 'register' %}">Register</a> {% endcomment %}
-        {% endif %}
+   {% endif %}
+  </div>
+
+  <!-- Right -->
+  <div class="nav__burger-menu">
+    <input id="menu-toggle" type="checkbox" />
+    <label class="menu-toggle__icons" for="menu-toggle">
+        <span class="icon--close"><ion-icon name="close" /></span>
+        <span class="icon--burger"><ion-icon name="menu-outline" /></span>
+    </label>
+    <div class="menu__body">
+        <ul class="menu__body__nav-items">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="{% url 'blog-home' %}">Blog</a>
+            </li>
+            <li>
+                <a href="/">Kurse</a>
+            </li>
+        </ul>
     </div>
-
-
-    <!-- Right -->
-
-    <div id="navbar-right">
-    </div>
-
+  </div>
 </nav>

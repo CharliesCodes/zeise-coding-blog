@@ -1,3 +1,10 @@
+.categories__menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 
 .pinned-post-box{
   width:100%;
@@ -18,11 +25,6 @@
   right: 0.5rem;
 }
 
-
-.btn-group-wrap{
-  align-items: center;
-  justify-content: center;
-}
 
 .btn-blog-category{
   color: var(--gray-turquoise-color);
@@ -73,6 +75,17 @@ input.search-input {
   width: 100%;
 }
 
+.card-body {
+  position: relative;
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.text-muted {
+ color: #6c757d;
+}
 
 /*---------------------------------------------
               DETAIL
