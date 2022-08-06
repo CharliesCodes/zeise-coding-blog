@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
 from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
 from django.contrib.contenttypes.fields import GenericRelation
@@ -32,15 +31,15 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author")
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="author", null=True)
     updated_on = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField(Category, related_name="posts")
     header_image = models.ImageField(blank=True, null=True, upload_to="images/")
     # seotitle= models.CharField(max_length=60, unique=True)
-    content = RichTextUploadingField(blank=True, null=True)
+    content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, default=None, blank=True, related_name="likes")
+    likes = models.ManyToManyField(User, default=None, blank=True, related_name="posts")
     snippet = models.CharField(max_length=200)
     pin = models.BooleanField(default=False)
     hit_count_generic = GenericRelation(

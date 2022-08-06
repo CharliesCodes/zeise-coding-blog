@@ -1,5 +1,7 @@
 from . import views
 from django.urls import path
+from .feeds import BlogFeed
+
 
 urlpatterns = [
     path("", views.PostList.as_view(), name="blog-home"),
@@ -11,4 +13,6 @@ urlpatterns = [
     path("category/<str:category>/", views.category_view, name="category"),
     path("search_post", views.search_post, name="search-post"),
     path("like/<int:pk>", views.like_post, name="like-post"),
+    # RSS route
+    path("feed", BlogFeed(), name ="feed"),
 ]
