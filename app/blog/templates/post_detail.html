@@ -15,29 +15,24 @@
 
 {% block content %}
 
+<article style="width: 100%;">
 
-<div class="flex-container wrap center" style="width: 100%;">
-  <article>
-    <div class="card" style="width: 100%;">
-      <div class="card-body">
-        <h1> {{ post.title }}</h1>
-        <p class="text-muted" style="text-align: end; font-size:1rem;">{{ post.author.first_name }} {{ post.author.last_name }}</br>{{ post.created_on.date }}
-          {% if user.is_authenticated and user.id == post.author.id %}
-            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-          {% endif %}
-        </p>
-        <hr class="blog-divider-top">
+  <h1>{{ post.title }}</h1>
+  <p class="text-muted" style="text-align: end; font-size:1rem;">{{ post.author.first_name }} {{ post.author.last_name }}</br>{{ post.created_on.date }}
+    {% if user.is_authenticated and user.id == post.author.id %}
+      <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+    {% endif %}
+  </p>
+  <hr class="blog-divider-top">
 
-        <p class="card-text">
-          {% if post.header_image %}
-            <img src="{{ post.header_image.url | safe }}">
-          {% endif %}
-          {{ post.content | safe }}
-        </p>
-        <hr class="blog-divider-bottom">
-      </div>
-    </div>
+  <p>
+    {% if post.header_image %}
+      <img src="{{ post.header_image.url | safe }}">
+    {% endif %}
 
+    {{ post.content | safe }}
+  </p>
+  <hr class="blog-divider-bottom">
 
 
 
@@ -47,79 +42,73 @@
   </form>
   <strong>{{ post.liked.all.count }} Likes </strong> {% endcomment %}
 
-  <br>
 
-    <div class="row warp" style="margin-bottom: 3rem; padding: 0 1.25rem 0 1.25rem">
-        {% comment %} <div class="col-3">
-          {% if post.author.profile.profile_pic %}
-            <img src="{{ post.author.profile.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
-          {% else %}
-            <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
-          {% endif %}
-        </div> {% endcomment %}
-        <div class="col-9">
-          <h5 class="card-title">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
-          <p class="flex-container warp" style="align-items:center">
-            {% if post.author.profile.website_url%}
-              <a href="{{ post.author.profile.website_url }}" target="_blank">Website</a>
-            {% endif %}
-            {% if post.author.profile.github_url%}
-            <a href="{{ post.author.profile.github_url }}" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.linkedin_url%}
-            <a href="{{ post.author.profile.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.reddit_url%}
-            <a href="{{ post.author.profile.reddit_url }}" target="_blank"><ion-icon name="logo-reddit"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.instagram_url%}
-            <a href="{{ post.author.profile.instagram_url }}" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.pinterest_url%}
-            <a href="{{ post.author.profile.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.twitter_url%}
-            <a href="{{ post.author.profile.twitter_url }}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile.facebook_url%}
-              <a href="{{ post.author.profile.facebook_url }}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
-            {% endif %}
-            {% if post.author.profile %}
-              {% comment %} <a href="{% url 'show_profile_page' post.author.profile.id %}">Profil</a> {% endcomment %}
-            {% endif %}
-          </p>
-
-          <p class="card-text" style="margin-top:1rem;">{{ post.author.profile.snippet }}</p>
-        </div>
-    </div>
-
-
-    {% comment %} <hr>
-      <h2>Comments</h2>
-      <form>
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="comment_textarea">Write a Comment</label>
-          <textarea class="form-control" id="comment_textarea" rows="3"></textarea>
-        </div>
-      </form>
-      {% if not post.comments.all %}
-        Post the first Comment!
+  <div style="margin-top:1rem">
+    {% comment %} <div class="col-3">
+      {% if post.author.profile.profile_pic %}
+        <img src="{{ post.author.profile.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
       {% else %}
-        {% for comment in post.comments.all%}
-          <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
-          <br/>
-          {{ comment.content }}
-        {% endfor %}
-      {% endif %} {% endcomment %}
+        <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
+      {% endif %}
+    </div> {% endcomment %}
+
+    <h5>{{ post.author.first_name }} {{ post.author.last_name }}</h5>
+
+    {% if post.author.profile.website_url%}
+      <a href="{{ post.author.profile.website_url }}" target="_blank">Website</a>
+    {% endif %}
+    {% if post.author.profile.github_url%}
+    <a href="{{ post.author.profile.github_url }}" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.linkedin_url%}
+    <a href="{{ post.author.profile.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.reddit_url%}
+    <a href="{{ post.author.profile.reddit_url }}" target="_blank"><ion-icon name="logo-reddit"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.instagram_url%}
+    <a href="{{ post.author.profile.instagram_url }}" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.pinterest_url%}
+    <a href="{{ post.author.profile.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.twitter_url%}
+    <a href="{{ post.author.profile.twitter_url }}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile.facebook_url%}
+      <a href="{{ post.author.profile.facebook_url }}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+    {% endif %}
+    {% if post.author.profile %}
+      {% comment %} <a href="{% url 'show_profile_page' post.author.profile.id %}">Profil</a> {% endcomment %}
+    {% endif %}
+
+    <p style="margin-top:1rem;">{{ post.author.profile.snippet }}</p>
+  </div>
 
 
-  </article>
+  {% comment %} <hr>
+    <h2>Comments</h2>
+    <form>
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="comment_textarea">Write a Comment</label>
+        <textarea class="form-control" id="comment_textarea" rows="3"></textarea>
+      </div>
+    </form>
+    {% if not post.comments.all %}
+      Post the first Comment!
+    {% else %}
+      {% for comment in post.comments.all%}
+        <strong>{{ comment.name }} - {{ comment.date_added }}</strong>
+        <br/>
+        {{ comment.content }}
+      {% endfor %}
+    {% endif %} {% endcomment %}
 
-</div>
 
-
+</article>
 {% endblock content %}
+
 {% block extrascripts %}
 <script src="{% static 'js/modalimages.js' %}" type="text/javascript"></script>
 {% endblock extrascripts%}
