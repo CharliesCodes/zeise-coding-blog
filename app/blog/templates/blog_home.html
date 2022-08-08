@@ -15,91 +15,81 @@ Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
 
 {% block content %}
 
-<div class="container">
 
-    {% comment %} <h1 style="margin-bottom: 3.5rem; text-align:center;">Blog</h1> {% endcomment %}
+{% comment %} <h1 style="margin-bottom: 3.5rem; text-align:center;">Blog</h1> {% endcomment %}
 
-    {% if categories_menu %}
-    <div style="margin-bottom: 5rem">
-        <ul class="categories__menu">
+{% if categories_menu %}
+<div style="margin-bottom: 5rem; width: 100%">
+    <ul class="categories__menu">
         {% for item in categories_menu %}
             <li>
-                <a href="{% url 'category' item|slugify %}" class="btn-blog-category btn">{{ item|title }}</a>
+                <a href="{% url 'category' item|slugify %}" class="btn-blog-category">{{ item|title }}</a>
             </li>
         {% endfor %}
-        </ul>
-        <div class="input-groupcenter">
-            <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'search-post' %}">
-                {% csrf_token %}
-                <input class=" form-control mr-sm-1 search-input" type="search" placeholder="Search Post" aria-label="Search" name="post-search-input">
-                <button class="btn btn-search" type="submit">Search</button>
-            </form>
-        </div>
-
-        {% comment %} <hr class ="center" style="width: 90%; margin-top:2rem;"> {% endcomment %}
-
+    </ul>
+    <div class="categories__menu__searchbar">
+        <form class="categories__menu__searchbar__form" method="POST" action="{% url 'search-post' %}">
+            {% csrf_token %}
+            <input class="search-input" type="search" placeholder="Search Post" aria-label="Search" name="post-search-input" required>
+            <ion-icon name="search" class="fa"></ion-icon>
+        </form>
     </div>
-    {% endif %}
+    {% comment %} <hr class ="center" style="width: 90%; margin-top:2rem;"> {% endcomment %}
+</div>
+{% endif %}
 
-    {% if user.is_authenticated %}
-        <div class="center">
-            <a href="{% url 'add-post' %}" class="btn">Add Post</a>
-            <a href="{% url 'add-category' %}" class="btn">Add Category</a>
-        </div>
-    {% endif %}
-
-
-    <div class="col">
-        <!-- Blog Entries Column -->
-        <div class="flex-container wrap center" style="width: 100%;">
-            {% for post in pinned_posts %}
-            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
-                <div class="card-body">
-                    <div>
-                        <ion-icon name="star-outline" id="star-icon"></ion-icon>
-                    </div>
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">
-                        {% for category in post.categories.all %}
-                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
-                        {% endfor %}
-                        {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
-                        {% if user.is_authenticated and user.id == post.author.id %}
-                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-                        {% endif %}
-                    </p>
-                    <p class="card-text">{{ post.snippet|safe }}</p>
-                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Zum Beitrag</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+{% if user.is_authenticated %}
+    <div class="center">
+        <a href="{% url 'add-post' %}" class="btn">Add Post</a>
+        <a href="{% url 'add-category' %}" class="btn">Add Category</a>
     </div>
+{% endif %}
 
 
-    <div class="col">
-        <!-- Blog Entries Column -->
-        <div class="flex-container wrap center" style="width: 100%;">
-            {% for post in post_list %}
-            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">
-                        {% for category in post.categories.all %}
-                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
-                        {% endfor %}
-                        {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
-                        {% if user.is_authenticated and user.id == post.author.id %}
-                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-                        {% endif %}
-                    </p>
-                    <p class="card-text">{{ post.snippet|safe }}</p>
-                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Zum Beitrag</a>
-                </div>
-            </div>
-            {% endfor %}
+
+<!-- Blog Entries Column -->
+{% for post in pinned_posts %}
+<div class="border-card post-card" style="margin-bottom: 3.5rem">
+    <div class="card-body">
+        <div>
+            <ion-icon name="star-outline" id="star-icon"></ion-icon>
         </div>
+        <h2>{{ post.title }}</h2>
+        <p class="text-muted">
+            {% for category in post.categories.all %}
+                <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
+            {% endfor %}
+            {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+            {% if user.is_authenticated and user.id == post.author.id %}
+                <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+            {% endif %}
+        </p>
+        <p>{{ post.snippet|safe }}</p>
+        <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn" style="text-align:center;display:block;">Zum Beitrag</a>
     </div>
 </div>
+{% endfor %}
+
+
+<!-- Blog Entries Column -->
+{% for post in post_list %}
+<div class="border-card post-card" style="margin-bottom: 3.5rem">
+    <div class="card-body">
+        <h2>{{ post.title }}</h2>
+        <p class="text-muted">
+            {% for category in post.categories.all %}
+                <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
+            {% endfor %}
+            {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+            {% if user.is_authenticated and user.id == post.author.id %}
+                <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+            {% endif %}
+        </p>
+        <p>{{ post.snippet|safe }}</p>
+        <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Zum Beitrag</a>
+    </div>
+</div>
+{% endfor %}
+
 
 {%endblock%}

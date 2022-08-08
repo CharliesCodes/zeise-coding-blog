@@ -386,6 +386,15 @@ a:active {
 }
 
 
+.card-body {
+  position: relative;
+  padding: 24px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
 /* ------------IMAGES---------------------------*/
 
 .circular--square {
