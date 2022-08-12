@@ -86,7 +86,7 @@ Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
             {% endif %}
         </p>
         <p>{{ post.snippet|safe }}</p>
-        <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Zum Beitrag</a>
+        <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;"><span class="post-link"></span></a>
     </div>
 </div>
 {% endfor %}
