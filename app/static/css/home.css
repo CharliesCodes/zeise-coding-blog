@@ -16,15 +16,25 @@
   transition: all .3s ease-in-out;
 }
 
+/* .btn-courses{
+  box-shadow: 0px 0px 5px #66FCF1, 0px 0px 25px #66FCF1, 0px 0px 50px #66FCF1, 0px 0px 100px #66FCF1;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+} */
+
+
 .btn-courses:hover{
   background-color: transparent;
   background-repeat: no-repeat;
   transform: scale(1.2);
+  box-shadow: 0px 0px 5px #66FCF1, 0px 0px 25px #66FCF1, 0px 0px 50px #66FCF1, 0px 0px 100px #66FCF1;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 
 .btn-blog:hover{
   transform: scale(1.2);
+  box-shadow: 0px 0px 5px #fcd466, 0px 0px 25px #fcd466, 0px 0px 50px #fcd466, 0px 0px 100px #fcd466;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
 }
 
 .profile-image{

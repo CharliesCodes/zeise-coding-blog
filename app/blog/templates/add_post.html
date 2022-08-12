@@ -1,15 +1,23 @@
 
 {% extends "base.html" %}
 {% block title %} Add Blog Post {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
 
 {% if user.is_authenticated %}
 
-    <div class="form-group w-50 p-3 mx-auto">
+    <div class="form-group">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.media }}
-            {{ form.as_p }}
+            {{ form.as_p|safe }}
             <button class="btn btn-primary">Post</button>
         </form>
     </div>
@@ -22,5 +30,11 @@
 <h1> This is a prohibited Area! Leave it or Bill Cipher will take care of it!</h1>
 
 {% endif %}
+
+
+{% block extrascripts %}
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
 
 {%endblock%}

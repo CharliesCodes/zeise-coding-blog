@@ -65,6 +65,15 @@ else:
 # ckeditor chooses the media folder as defaul -> media/uploads/
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+CKEDITOR_CONFIGS = {
+ 'default' : {
+ 'extraPlugins': 'codesnippet',
+  'toolbar':'full',
+    },
+}
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
