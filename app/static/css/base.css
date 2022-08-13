@@ -248,11 +248,12 @@ hr {
 /* ------------LINKS------------------------*/
 a {
   color: var(--gray-turquoise-color);
-  text-decoration: none;
+  text-decoration: none!important;
 }
 
 a:hover {
   color: var(--yellow-color);
+  text-decoration: none!important;
 }
 
 /* ------------CONTAINER------------------------*/
@@ -307,14 +308,6 @@ ion-icon {
 }
 
 
-/* ------------LINKS---------------------------*/
-/* a:link,
-a:active {
-  color: #e67e22;
-  text-decoration: none;
-  padding-bottom: 1px;
-  border-bottom: 1px solid #e67e22;
-} */
 /* ------------BUTTONS---------------------------*/
 
 
