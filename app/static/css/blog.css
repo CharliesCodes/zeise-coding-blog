@@ -148,7 +148,7 @@
 
 .social-meadia-list > li:hover{
   transform: scale(1.3);
-  -webkit-box-reflect: below 15px linear-gradient(transparent, #0B0C10);
+  /* -webkit-box-reflect: below 15px linear-gradient(transparent, #0B0C10); */
 }
 
 
