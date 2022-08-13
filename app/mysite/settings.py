@@ -66,9 +66,10 @@ else:
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_CONFIGS = {
- 'default' : {
- 'extraPlugins': 'codesnippet',
-  'toolbar':'full',
+    'default' : {
+        'extraPlugins': ','.join(['codesnippet']),
+        'toolbar':'full',
+    'codeSnippet_theme': 'sunburst',
     },
 }
 
