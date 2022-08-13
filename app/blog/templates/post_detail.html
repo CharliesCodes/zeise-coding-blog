@@ -46,47 +46,63 @@
   <strong>{{ post.liked.all.count }} Likes </strong> {% endcomment %}
 
 
-  <div style="margin-top:1rem">
-    {% comment %} <div class="col-3">
-      {% if post.author.profile.profile_pic %}
-        <img src="{{ post.author.profile.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
-      {% else %}
-        <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
+
+  {% comment %} <div class="col-3">
+    {% if post.author.profile.profile_pic %}
+      <img src="{{ post.author.profile.profile_pic.url }}" class="circular--square author-profile-image"  alt="Insert nice smile here!">
+    {% else %}
+      <img src="{% static 'logo/Logo_ZC.png' %}" style="max-width: 100%; height: auto; width: auto;" alt="Insert nice smile here!">
+    {% endif %}
+  </div> {% endcomment %}
+
+  <h5 style="margin-top:1.5rem">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
+
+  {% if post.author.profile.website_url%}
+  <a href="{{ post.author.profile.website_url }}" target="_blank">Website</a>
+  {% endif %}
+
+  <ul class="social-meadia-list">
+    <li>
+      {% if post.author.profile.github_url%}
+      <a href="{{ post.author.profile.github_url }}" target="_blank"><ion-icon name="logo-github" id="github-icon"></i></a>
       {% endif %}
-    </div> {% endcomment %}
+    </li>
+    <li>
+      {% if post.author.profile.linkedin_url%}
+      <a href="{{ post.author.profile.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin" id="linkedin-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+    <li>
+      {% if post.author.profile.reddit_url%}
+      <a href="{{ post.author.profile.reddit_url }}" target="_blank"><ion-icon name="logo-reddit" id="reddit-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+    <li>
+      {% if post.author.profile.instagram_url%}
+      <a href="{{ post.author.profile.instagram_url }}" target="_blank"><ion-icon name="logo-instagram" id="instagram-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+    <li>
+      {% if post.author.profile.pinterest_url%}
+      <a href="{{ post.author.profile.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest" id="pinterest-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+    <li>
+      {% if post.author.profile.twitter_url%}
+      <a href="{{ post.author.profile.twitter_url }}" target="_blank"><ion-icon name="logo-twitter" id="twitter-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+    <li>
+      {% if post.author.profile.facebook_url%}
+      <a href="{{ post.author.profile.facebook_url }}" target="_blank"><ion-icon name="logo-facebook" id="facebook-icon"></ion-icon></a>
+      {% endif %}
+    </li>
+  </ul>
+    {% comment %} {% if post.author.profile %}
+    <a href="{% url 'show_profile_page' post.author.profile.id %}">Profil</a>
+    {% endif %} {% endcomment %}
 
-    <h5>{{ post.author.first_name }} {{ post.author.last_name }}</h5>
-
-    {% if post.author.profile.website_url%}
-      <a href="{{ post.author.profile.website_url }}" target="_blank">Website</a>
-    {% endif %}
-    {% if post.author.profile.github_url%}
-    <a href="{{ post.author.profile.github_url }}" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.linkedin_url%}
-    <a href="{{ post.author.profile.linkedin_url }}" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.reddit_url%}
-    <a href="{{ post.author.profile.reddit_url }}" target="_blank"><ion-icon name="logo-reddit"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.instagram_url%}
-    <a href="{{ post.author.profile.instagram_url }}" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.pinterest_url%}
-    <a href="{{ post.author.profile.pinterest_url }}" target="_blank"><ion-icon name="logo-pinterest"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.twitter_url%}
-    <a href="{{ post.author.profile.twitter_url }}" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile.facebook_url%}
-      <a href="{{ post.author.profile.facebook_url }}" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
-    {% endif %}
-    {% if post.author.profile %}
-      {% comment %} <a href="{% url 'show_profile_page' post.author.profile.id %}">Profil</a> {% endcomment %}
-    {% endif %}
-
-    <p style="margin-top:1rem;">{{ post.author.profile.snippet }}</p>
-  </div>
+  <p style="margin-top:1rem;">{{ post.author.profile.snippet }}</p>
 
 
   {% comment %} <hr>
