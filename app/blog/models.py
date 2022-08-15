@@ -11,7 +11,7 @@ from hitcount.models import HitCountMixin, HitCount
 STATUS = ((0, "Draft"), (1, "Publish"))
 
 
-class Picture(models.Model):
+class Image(models.Model):
     image = CloudinaryField("image")
 
 

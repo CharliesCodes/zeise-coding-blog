@@ -1,6 +1,12 @@
 from django import forms
-from .models import Post, Category, Picture
+from .models import Post, Category, Image
 from django.db import models
+
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = "__all__"
 
 
 class PostForm(forms.ModelForm):
@@ -17,7 +23,7 @@ class PostForm(forms.ModelForm):
             "pin",
         )
         slug = models.SlugField(max_length=200, unique=True)
-        images = Picture
+        images = Image
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "author": forms.TextInput(
@@ -39,7 +45,7 @@ class PostForm(forms.ModelForm):
 class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("title", "slug", "categories", "content", "snippet", "status")
+        fields = ("title", "slug", "categories", "content", "snippet", "status", "header_image")
         slug = models.SlugField(max_length=200, unique=True)
         categories = forms.ModelMultipleChoiceField(
             queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple
@@ -47,6 +53,7 @@ class EditPostForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             # 'author': forms.Select(attrs={'class': 'form-control'}),
+            # 'header_image': ImageForm(),
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),

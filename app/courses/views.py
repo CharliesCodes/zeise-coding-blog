@@ -9,7 +9,7 @@ from django.views.generic import (
 )
 from django.db.models import Q
 
-from blog.models import Category, Picture
+from blog.models import Category, Image
 from .models import Course
 
 

@@ -2,7 +2,7 @@ from django.template.defaultfilters import slugify
 
 from django.db import models
 from django.contrib.auth.models import User
-from blog.models import Category, Picture
+from blog.models import Category, Image
 from ckeditor.fields import RichTextField
 
 
@@ -15,7 +15,7 @@ class Course(models.Model):
     # slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="courses", null=True)
     categories = models.ManyToManyField(Category, related_name="courses")
-    thumbnail = models.OneToOneField(Picture, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True)
+    thumbnail = models.OneToOneField(Image, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True)
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
