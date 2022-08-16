@@ -95,6 +95,10 @@
   animation: letter-flicker 10s linear infinite;
 }
 
+#offset_start{
+    animation: letter-flicker-start 10s linear infinite;
+}
+
 @keyframes border-flicker {
 
   30% {
@@ -139,6 +143,18 @@
     opacity:0.2;
   }
   68% {
+    opacity:1;
+  }
+}
+
+@keyframes letter-flicker-start {
+  84% {
+    opacity:1;
+  }
+  88% {
+    opacity:0.4;
+  }
+  92% {
     opacity:1;
   }
 }

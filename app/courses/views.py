@@ -36,3 +36,7 @@ def category_view(request, category):
         "categories.html",
         {"category": category_name, "category_posts": category_posts},
     )
+
+
+def home_page_view(request):
+    return render(request, "home.html")
