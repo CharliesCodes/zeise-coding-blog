@@ -99,7 +99,15 @@
 }
 
 @keyframes border-flicker {
-
+  10% {
+    opacity:1;
+  }
+  15% {
+    opacity:0.6;
+  }
+  18% {
+    opacity:1;
+  }
   30% {
     opacity:1;
   }
