@@ -27,14 +27,14 @@ Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
             </li>
         {% endfor %}
     </ul>
-    <div class="categories__menu__searchbar">
+    {% comment %} TODO {% endcomment %}
+    {% comment %} <div class="categories__menu__searchbar">
         <form class="categories__menu__searchbar__form" method="POST" action="{% url 'search-post' %}">
             {% csrf_token %}
             <input class="search-input" type="search" placeholder="Search Post" aria-label="Search" name="post-search-input" required>
             <ion-icon name="search" class="fa"></ion-icon>
         </form>
-    </div>
-    {% comment %} <hr class ="center" style="width: 90%; margin-top:2rem;"> {% endcomment %}
+    </div> {% endcomment %}
 </div>
 {% endif %}
 

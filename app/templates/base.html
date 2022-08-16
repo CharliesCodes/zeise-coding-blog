@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-{% load static %}
-{% load google_analytics_tags %}
-
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
-
 
 <html lang="de">
 
     <head>
+        {% load static %}
+        {% load google_analytics_tags %}
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <title>
             {% block title %}
             Zeise Coding
             {% endblock %}
         </title>
-
-        <div style="display:none">
-            <img src="{% google_analytics %}" width="0" height="0" />
-        </div>
-
         <meta name="google" content="notranslate" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8" />
@@ -44,6 +38,9 @@
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         {% block extrahead %}{% endblock %} <!-- Load extra CSS for individual pages -->
     </head>
+    <div style="display:none">
+        <img src="{% google_analytics %}" width="0" height="0" />
+    </div>
 
     <body>
 
@@ -51,7 +48,7 @@
         <!-- Navbar -->
 
 
-        <main class="page-content" style="margin-top:5%" role="main">
+        <main class="page-content" role="main">
             {% block content %}
             <!-- Content -->
             {% endblock content %}

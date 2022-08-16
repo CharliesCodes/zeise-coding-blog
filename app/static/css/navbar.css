@@ -1,8 +1,9 @@
 
 .nav {
-    position: relative;
-    justify-content: space-between;
-    padding: 20px;
+  position: relative;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: transparent;
 }
 
 .nav__left {
