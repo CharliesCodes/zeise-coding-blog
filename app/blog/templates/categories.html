@@ -1,10 +1,26 @@
 {% extends "base.html" %}
 
-
 {% load static %}
+{% block metahead%}
+{% if category_posts %}
+<title>Zeise Coding Blog | Kategorie: {{category|title}}</title>
+<meta property="og:title" content="Zeise Coding Blog | Kategorie: {{category|title}}">
+<meta name="description" property="og:description" content="Alle Blog-Beiträge zum Thema {{category|title}} auf einen Blick!">
 
-{% block title %}
-Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
+<!--{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+<meta property="og:url" content="https://www.zeise-coding.de/blog/category/{{category}}">
+<meta name="twitter:title" content="Zeise Coding Blog | Kategorie: {{category|title}}">
+<meta name="twitter:description" content="Alle Blog-Beiträge zum Thema {{category|title}} auf einen Blick!">
+<!--{% comment %}    <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+{% endif %}
+<meta name="twitter:card" value="summary"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="author" content="Dominique Zeise">
+<meta property="og:type" content="blog">
+<meta name="robots" content="index, follow">
 {% endblock %}
 
 
@@ -17,45 +33,41 @@ Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
 {% block content %}
 
 
-<div div class="container">
-
 {% if category_posts %}
 
-    <div class="center" style="margin-bottom:3.5rem;">
-        <h1>Kategorie:&ensp;</h1>
-        <h1 id="main-category-title">{{category|title}}</h1>
-    </div>
+<div class="center" style="margin-bottom:3.5rem;">
+    <h1>Kategorie:&ensp;</h1>
+    <h1 id="main-category-title">{{category|title}}</h1>
+</div>
 
-    <div class="col">
-        <!-- Blog Entries Column -->
-        <div class="flex-container wrap center" style="width: 100%;">
-            {% for post in category_posts %}
-            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6"> {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
-                        {% if user.is_authenticated and user.id == post.author.id %}
-                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-                        {% endif %}
-                    </p>
-                    <p class="card-text">{{ post.snippet|safe }}</p>
-                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
-                </div>
+
+<div class="col">
+    <div class="flex-container wrap center" style="width: 100%;">
+        {% for post in category_posts %}
+        <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
+            <div class="card-body">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text text-muted h6"> {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
+                    {% if user.is_authenticated and user.id == post.author.id %}
+                        <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
+                    {% endif %}
+                </p>
+                <p class="card-text">{{ post.snippet|safe }}</p>
+                <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+</div>
 
 
 {% else %}
-    <div style="margin-bottom:3.5rem;">
-        <h1 style="text-align:center"> Aktuell gibt es keine Beiträge zu:&ensp;</h1>
-        <h1 style="text-align:center; color: var(--gray-turquoise-color);">{{category|title}}</h1>
-    </div>
+<div style="margin-bottom:3.5rem;">
+    <h1 style="text-align:center"> Aktuell gibt es keine Beiträge zu:&ensp;</h1>
+    <h1 style="text-align:center; color: var(--gray-turquoise-color);">{{category|title}}</h1>
+</div>
 
 {% endif %}
 
-
-</div>
 
 {%endblock%}

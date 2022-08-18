@@ -1,17 +1,35 @@
 
 {% extends "base.html" %}
 
-
 {% load static %}
+
+{% block metahead%}
+{% if filtered_posts %}
+<title>Zeise Coding Blog | Suche:&ensp;{{search|title}}</title>
+<meta property="og:title" content="Zeise Coding Blog | Kategorie:&ensp;{{search|title}}">
+<meta name="description" property="og:description" content="Alle Blog-Beiträge zum Thema&ensp;{{search|title}} auf einen Blick!">
+
+<!--{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+<meta property="og:url" content="https://www.zeise-coding.de/blog/search-post/{{search}}">
+<meta name="twitter:title" content="Zeise Coding Blog | Suche:&ensp;{{search|title}}">
+<meta name="twitter:description" content="Alle Blog-Beiträge zum Thema&ensp;{{search|title}} auf einen Blick!">
+<!--{% comment %}    <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+{% endif %}
+<meta name="twitter:card" value="summary"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="author" content="Dominique Zeise">
+<meta property="og:type" content="blog">
+<meta name="robots" content="index, follow">
+{% endblock %}
+
+
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static "css/blog.css" %}">
 {% endblock %}
-
-{% block title %}
-Zeise Coding Blog - Python für Anfänger und Fortgeschrittene
-{% endblock %}
-
 
 
 

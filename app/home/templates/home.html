@@ -3,8 +3,23 @@
 {% load static %}
 
 
-{% block title %}
-Blog & Kurse | Python für Data-Science & Bioinformatik
+{% block metahead%}
+<title>Zeise Coding Homepage | Blog & Kurse</title>
+<meta property="og:title" content="Python Blog für Data-Science & Bioinformatik | Zeise Coding">
+<meta name="author" content="Dominique Zeise">
+<meta name="description" property="og:description" content="Spannende online Kurse und Blogartikel über Python, R, Data-Science, KI, Bioinformatik & vieles Mehr - für Anfänger und Fortgeschrittene. Komm vorbei!">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<!--{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+<meta property="og:url" content="https://www.zeise-coding.de/">
+<meta name="twitter:card" value="summary_large_image"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="twitter:title" content="Python Blog für Data-Science & Bioinformatik | Zeise Coding">
+<meta name="twitter:description" content="Spannende online Kurse und Blogartikel über Python, R, Data-Science, KI, Bioinformatik & vieles Mehr - für Anfänger und Fortgeschrittene. Komm vorbei!">
+<!--{% comment %}    <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
 {% endblock %}
 
 {% block extrahead %}

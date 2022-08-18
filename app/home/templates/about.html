@@ -3,8 +3,23 @@
 {% load static %}
 
 
-{% block title %}
-Zeise Coding About
+{% block metahead%}
+<title>Zeise Coding | About & Support me</title>
+<meta property="og:title" content="Zeise Coding | About & Support me">
+<meta name="author" content="Dominique Zeise">
+<meta name="description" property="og:description" content="Hier erfährst du, warum ich meine Firma gegründet habe. Wenn du mich unterstützen möchtest, kannst du das hier tun!">
+<meta property="og:type" content="article">
+{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}
+<meta property="og:url" content="https://www.zeise-coding.de/about">
+<meta name="twitter:card" value="summary_large_image"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="twitter:title" content="Zeise Coding | About & Support me">
+<meta name="twitter:description" content="Hier erfährst du, warum ich meine Firma gegründet habe. Wenn du mich unterstützen möchtest, kannst du das hier tun!">
+<meta name="robots" content="index, follow">
+{% comment %} <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}
 {% endblock %}
 
 

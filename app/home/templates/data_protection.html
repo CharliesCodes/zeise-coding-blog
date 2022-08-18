@@ -3,8 +3,23 @@
 {% load static %}
 
 
-{% block title %}
-Zeise Coding About
+{% block metahead%}
+<title>Zeise Coding | Datenschutzerklärung</title>
+<meta property="og:title" content="Zeise Coding | Datenschutzerklärung">
+<meta name="author" content="Dominique Zeise">
+<meta name="description" property="og:description" content="Datenschutzerklärung">
+<meta property="og:type" content="article">
+{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}
+<meta property="og:url" content="https://www.zeise-coding.de/datenschutzerklaerung/">
+<meta name="twitter:card" value="summary"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="twitter:title" content="Zeise Coding | Datenschutzerklärung">
+<meta name="twitter:description" content="Datenschutzerklärung">
+<meta name="robots" content="noindex, follow">
+{% comment %} <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}
 {% endblock %}
 
 
