@@ -15,15 +15,17 @@ class PostForm(forms.ModelForm):
         fields = (
             "title",
             "author",
+            "description",
             "content",
             "categories",
             "snippet",
             "status",
             "header_image",
+            "header_image_alt",
             "pin",
         )
         slug = models.SlugField(max_length=200, unique=True)
-        images = Image
+        # images = Image
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "author": forms.TextInput(
@@ -34,7 +36,10 @@ class PostForm(forms.ModelForm):
                     "type": "hidden",
                 }
             ),
+            "description": forms.Textarea(attrs={"class": "form-control"}),
             "categories": forms.CheckboxSelectMultiple,
+            # "header_image",
+            # "header_image_alt",
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
@@ -45,7 +50,9 @@ class PostForm(forms.ModelForm):
 class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ("title", "slug", "categories", "content", "snippet", "status", "header_image")
+
+        fields = ("title", "slug", "description", "categories", "content", "snippet", "status", "header_image",
+            "header_image_alt", "pin")
         slug = models.SlugField(max_length=200, unique=True)
         categories = forms.ModelMultipleChoiceField(
             queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple
@@ -53,7 +60,10 @@ class EditPostForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             # 'author': forms.Select(attrs={'class': 'form-control'}),
-            # 'header_image': ImageForm(),
+            "description": forms.Textarea(attrs={"class": "form-control"}),
+            "categories": forms.CheckboxSelectMultiple,
+            # "header_image",
+            # "header_image_alt",
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),

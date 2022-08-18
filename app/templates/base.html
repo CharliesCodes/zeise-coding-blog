@@ -3,23 +3,16 @@
 <html lang="de">
 
     <head>
-        {% load static %}
-        {% load google_analytics_tags %}
 
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <title>
-            {% block title %}
-            Zeise Coding
-            {% endblock %}
-        </title>
-        <meta name="google" content="notranslate" />
+        {% comment %} <meta name="google" content="notranslate" />
+        <meta name="google" content="nositelinkssearchbox" />{% endcomment %}
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {% comment %} TODO {% endcomment %}
-        <meta name="description" content="">
+
         <meta name="keywords" content="">
-        <meta name="author" content="Dominique Zeise">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block metahead %}{% endblock %}
 
         <meta name="robots" content="index, follow">
         <meta name="mobile-web-app-capable" content="yes">
@@ -27,9 +20,11 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 
+        {% load static %}
+        {% load google_analytics_tags %}
+
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous" /> {% endcomment %}
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
@@ -38,6 +33,7 @@
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         {% block extrahead %}{% endblock %} <!-- Load extra CSS for individual pages -->
     </head>
+
     <div style="display:none">
         <img src="{% google_analytics %}" width="0" height="0" />
     </div>

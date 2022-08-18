@@ -4,11 +4,23 @@
 
 {% load static %}
 
-{% if post.seotitle %}
-  {% block title %}
-    {{ post.seotitle }}
-  {% endblock %}
-{% endif %}
+{% block metahead%}
+<title>{{post.title}}</title>
+<meta property="og:title" content="{{post.title}}">
+<meta name="author" content="{{ post.author.first_name }} {{ post.author.last_name }}">
+<meta name="description" property="og:description" content="{{post.description}}">
+<meta property="og:type" content="article"> {% comment %}website, article, blog, company, and image {% endcomment %}
+<!--{% comment %}<meta property="og:image" content="{{post.header_image.url}}">
+<meta property="og:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+<meta property="og:url" content="https://www.zeise-coding.de/blog/{{post.slug}}">
+<meta name="twitter:card" value="summary_large_image"> {% comment %} "summary", "summary_large_image", "app", or "player". {% endcomment %}
+<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:creator" content="@author_handle">
+<meta name="twitter:title" content="{{post.title}}">
+<meta name="twitter:description" content="{{post.description}}">
+<!--{% comment %}    <meta name="twitter:image" content="{{post.header_image.url}}">
+<meta name="twitter:image:alt" content="{{post.header_image_alt}}"> {% endcomment %}-->
+{% endblock %}
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static "css/blog.css" %}">

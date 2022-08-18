@@ -33,14 +33,15 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="author", null=True)
     updated_on = models.DateTimeField(auto_now=True)
+    description = models.CharField(blank=True, max_length=155)
     categories = models.ManyToManyField(Category, related_name="posts")
     header_image = models.ImageField(blank=True, null=True, upload_to="images/")
-    # seotitle= models.CharField(max_length=60, unique=True)
+    header_image_alt = models.CharField(blank=True, null=True, max_length=400)
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, default=None, blank=True, related_name="posts")
-    snippet = models.CharField(max_length=200)
+    snippet = models.CharField(default=None, blank=True, max_length=200)
     pin = models.BooleanField(default=False)
     hit_count_generic = GenericRelation(
         HitCount,
