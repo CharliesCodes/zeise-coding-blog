@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    "robots",
     # dont mess up next rows order! https://pypi.org/project/django-cloudinary-storage/
     "django.contrib.staticfiles",
     "cloudinary_storage",

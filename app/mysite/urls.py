@@ -10,25 +10,28 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 from django.contrib.sitemaps import GenericSitemap
 from django.contrib.sitemaps.views import sitemap
+from home.sitemaps import StaticViewSitemap
 from blog.sitemaps import PostSitemap
-
-
+from courses.sitemaps import CourseSitemap
 
 sitemaps = {
-    "posts": PostSitemap,
+    'static': StaticViewSitemap,
+    'posts': PostSitemap,
+    # 'courses': CourseSitemap,
 }
 
 urlpatterns = [
     path("", include("home.urls")),
     path("admin/", admin.site.urls),
     path("blog/", include("blog.urls")),
-    path("courses/", include("courses.urls")),
+    path("kurse/", include("courses.urls")),
     path(
         "sitemap.xml",
         sitemap,
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path("robots.txt", include("robots.urls")),
     path("members/", include("django.contrib.auth.urls")),
     path("members/", include("members.urls")),
     path("ckeditor/", include("ckeditor_uploader.urls")),
