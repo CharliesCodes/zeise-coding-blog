@@ -172,5 +172,5 @@
 
 /* Code Snippets */
 .hljs{
-  background: transparent;
+  background: transparent !important;
 }
