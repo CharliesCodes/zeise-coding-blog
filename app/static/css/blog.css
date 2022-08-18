@@ -169,3 +169,8 @@
     border: 0.25rem solid;
     border-color: var(--gray-color);
 }
+
+/* Code Snippets */
+.hljs{
+  background: transparent;
+}
