@@ -23,6 +23,7 @@ class PostForm(forms.ModelForm):
             "header_image",
             "header_image_alt",
             "pin",
+            "vg_wort_counter",
         )
         slug = models.SlugField(max_length=200, unique=True)
         # images = Image
@@ -43,6 +44,7 @@ class PostForm(forms.ModelForm):
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
+            "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }
         pin = (forms.BooleanField(),)
 
@@ -52,7 +54,7 @@ class EditPostForm(forms.ModelForm):
         model = Post
 
         fields = ("title", "slug", "description", "categories", "content", "snippet", "status", "header_image",
-            "header_image_alt", "pin")
+            "header_image_alt", "pin", "vg_wort_counter")
         slug = models.SlugField(max_length=200, unique=True)
         categories = forms.ModelMultipleChoiceField(
             queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple
@@ -67,4 +69,5 @@ class EditPostForm(forms.ModelForm):
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
+            "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }

@@ -43,6 +43,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, default=None, blank=True, related_name="posts")
     snippet = models.CharField(default=None, blank=True, max_length=200)
     pin = models.BooleanField(default=False)
+    vg_wort_counter = models.CharField(blank=True, max_length=500)
     hit_count_generic = GenericRelation(
         HitCount,
         object_id_field="object_pk",

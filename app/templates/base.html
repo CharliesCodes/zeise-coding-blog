@@ -3,7 +3,6 @@
 <html lang="de">
 
     <head>
-
         {% comment %} <meta name="google" content="notranslate" />
         <meta name="google" content="nositelinkssearchbox" />{% endcomment %}
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +14,8 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <meta name="referrer" content="unsafe-url">
 
 
         {% load static %}
@@ -28,32 +29,34 @@
 
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        {% block extrahead %}{% endblock %} <!-- Load extra CSS for individual pages -->
+        {% block extrahead %}{% endblock %}
     </head>
 
-    <div style="display:none">
-        <img src="{% google_analytics %}" width="0" height="0" />
-    </div>
 
     <body>
 
-        {% include "./navbar.html" %}
         <!-- Navbar -->
+        {% include "./navbar.html" %}
 
 
+        <!-- Content -->
         <main class="page-content" role="main">
             {% block content %}
-            <!-- Content -->
             {% endblock content %}
         </main>
 
+        <!-- Counter -->
+        <div style="display:none">
+            <img src="{% google_analytics %}" width="0" height="0" />
+        </div>
+        {% block vg_wort_counter %}{% endblock %}
 
         <!-- Footer -->
         {% include "./footer.html" %}
 
 
+        <!-- Extra Scripts -->
         {% block extrascripts %}
-        <!-- Extra Scripts like JS -->
         {% endblock %}
 
     </body>
