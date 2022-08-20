@@ -39,13 +39,13 @@ class PostForm(forms.ModelForm):
             ),
             "description": forms.Textarea(attrs={"class": "form-control"}),
             "categories": forms.CheckboxSelectMultiple,
-            # "header_image",
             # "header_image_alt",
             "content": forms.Textarea(attrs={"class": "form-control"}),
             "snippet": forms.Textarea(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
             "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }
+        header_image =  ImageForm,
         pin = (forms.BooleanField(),)
 
 
@@ -71,3 +71,4 @@ class EditPostForm(forms.ModelForm):
             "status": forms.Select(attrs={"class": "form-control"}),
             "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }
+        header_image =  ImageForm,
