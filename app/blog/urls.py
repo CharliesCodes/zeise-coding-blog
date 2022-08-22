@@ -10,8 +10,8 @@ urlpatterns = [
     path("edit-post/<slug:slug>", views.EditPostView.as_view(), name="edit-post"),
     path("delete-post/<slug:slug>", views.DeletePostView.as_view(), name="delete-post"),
     path("add-category", views.AddCategoryView.as_view(), name="add-category"),
-    path("category/<str:category>/", views.category_view, name="category"),
-    path("search-post", views.search_post, name="search-post"),
+    path("kategorie/<str:category>/", views.category_view, name="category"),
+    path("post-suche", views.search_post, name="search-post"),
     path("like/<int:pk>", views.like_post, name="like-post"),
     # RSS route
     path("feed", BlogFeed(), name ="feed"),
