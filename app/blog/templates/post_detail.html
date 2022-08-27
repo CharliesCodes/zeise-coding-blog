@@ -40,7 +40,7 @@
 <article style="width: 100%;">
 
   <h1>{{ post.title }}</h1>
-  <p class="text-muted" style="text-align: end; font-size:1rem;">{{ post.author.first_name }} {{ post.author.last_name }}</br>{{ post.created_on.date }}
+  <p class="text-muted" style="text-align: end; font-size:1.5rem;">
     {% if user.is_authenticated and user.id == post.author.id %}
       <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
     {% endif %}
@@ -75,13 +75,13 @@
     {% endif %}
   </div> {% endcomment %}
 
-  <h5 style="margin-top:1.5rem">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
+  <p class="text-muted" style="text-align: end; font-size:1rem;">{{ post.author.first_name }} {{ post.author.last_name }}</br>{{ post.created_on.date }}</p>
 
   {% if post.author.profile.website_url%}
   <a href="{{ post.author.profile.website_url }}" target="_blank">Website</a>
   {% endif %}
 
-  <ul class="social-meadia-list">
+  <ul class="social-meadia-list" style="margin-top:-1rem;">
     <li>
       {% if post.author.profile.github_url%}
       <a href="{{ post.author.profile.github_url }}" target="_blank"><ion-icon name="logo-github" id="github-icon"></i></a>
