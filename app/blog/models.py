@@ -31,7 +31,9 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="author", null=True)
+    author = models.ForeignKey(
+        User, on_delete=models.SET_NULL, related_name="author", null=True
+    )
     updated_on = models.DateTimeField(auto_now=True)
     description = models.CharField(blank=True, max_length=155)
     categories = models.ManyToManyField(Category, related_name="posts")

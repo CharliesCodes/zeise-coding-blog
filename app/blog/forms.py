@@ -45,7 +45,7 @@ class PostForm(forms.ModelForm):
             "status": forms.Select(attrs={"class": "form-control"}),
             "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }
-        header_image =  ImageForm,
+        header_image = (ImageForm,)
         pin = (forms.BooleanField(),)
 
 
@@ -53,8 +53,19 @@ class EditPostForm(forms.ModelForm):
     class Meta:
         model = Post
 
-        fields = ("title", "slug", "description", "categories", "content", "snippet", "status", "header_image",
-            "header_image_alt", "pin", "vg_wort_counter")
+        fields = (
+            "title",
+            "slug",
+            "description",
+            "categories",
+            "content",
+            "snippet",
+            "status",
+            "header_image",
+            "header_image_alt",
+            "pin",
+            "vg_wort_counter",
+        )
         slug = models.SlugField(max_length=200, unique=True)
         categories = forms.ModelMultipleChoiceField(
             queryset=Category.objects.all(), widget=forms.CheckboxSelectMultiple
@@ -71,4 +82,4 @@ class EditPostForm(forms.ModelForm):
             "status": forms.Select(attrs={"class": "form-control"}),
             "vg_wort_counter": forms.Textarea(attrs={"class": "form-control"}),
         }
-        header_image =  ImageForm,
+        header_image = (ImageForm,)

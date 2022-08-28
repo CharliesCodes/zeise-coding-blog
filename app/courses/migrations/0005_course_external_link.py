@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('courses', '0004_delete_courselist'),
+        ("courses", "0004_delete_courselist"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='course',
-            name='external_link',
+            model_name="course",
+            name="external_link",
             field=models.URLField(default=None, null=True),
         ),
     ]

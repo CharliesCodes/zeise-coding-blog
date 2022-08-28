@@ -14,5 +14,5 @@ urlpatterns = [
     path("post-suche", views.search_post, name="search-post"),
     path("like/<int:pk>", views.like_post, name="like-post"),
     # RSS route
-    path("feed", BlogFeed(), name ="feed"),
+    path("feed", BlogFeed(), name="feed"),
 ]

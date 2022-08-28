@@ -14,9 +14,13 @@ class Course(models.Model):
     subtitle = models.CharField(max_length=120, blank=True)
     # slug = models.SlugField(max_length=200, unique=True)
     external_link = models.URLField(default=None, null=True)
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, related_name="courses", null=True)
+    author = models.ForeignKey(
+        User, on_delete=models.SET_NULL, related_name="courses", null=True
+    )
     categories = models.ManyToManyField(Category, related_name="courses")
-    thumbnail = models.OneToOneField(Image, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True)
+    thumbnail = models.OneToOneField(
+        Image, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True
+    )
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)

@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('courses', '0004_delete_courselist'),
-        ('blog', '0040_alter_post_author_alter_post_content_and_more'),
+        ("courses", "0004_delete_courselist"),
+        ("blog", "0040_alter_post_author_alter_post_content_and_more"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='Picture',
-            new_name='Image',
+            old_name="Picture",
+            new_name="Image",
         ),
     ]

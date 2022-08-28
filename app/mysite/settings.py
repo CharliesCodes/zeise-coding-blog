@@ -66,13 +66,12 @@ else:
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_CONFIGS = {
-    'default' : {
-        'extraPlugins': ','.join(['codesnippet']),
-        'toolbar':'full',
-    'codeSnippet_theme': 'sunburst',
+    "default": {
+        "extraPlugins": ",".join(["codesnippet"]),
+        "toolbar": "full",
+        "codeSnippet_theme": "sunburst",
     },
 }
-
 
 
 # Application definition
@@ -143,8 +142,8 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "ENGINE": os.environ.get("SQL_ENGINE"),
+        "NAME": os.environ.get("SQL_DATABASE"),
     }
 }
 
