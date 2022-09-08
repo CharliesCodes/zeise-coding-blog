@@ -1,64 +1,85 @@
 <!DOCTYPE html>
 
 <html lang="de">
+  <head>
+    {% comment %}
+    <meta name="google" content="notranslate" />
+    <meta name="google" content="nositelinkssearchbox" />
+    {% endcomment %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:locale" content="de_DE" />
+    <meta
+      property="article:publisher"
+      content="https://www.linkedin.com/in/dominique-zeise/"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block metahead %}{% endblock %}
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <meta name="referrer" content="unsafe-url" />
 
-    <head>
-        {% comment %} <meta name="google" content="notranslate" />
-        <meta name="google" content="nositelinkssearchbox" />{% endcomment %}
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta property="og:locale" content="de_DE">
-        <meta property="article:publisher" content="https://www.linkedin.com/in/dominique-zeise/">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% block metahead %}{% endblock %}
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <meta name="referrer" content="no-referrer-when-downgrade">
-        <meta name="referrer" content="unsafe-url">
+    {% load static %} {% load google_analytics_tags %}
 
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+      rel="stylesheet"
+    />
 
-        {% load static %}
-        {% load google_analytics_tags %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{% static 'favicon.ico' %}"
+    />
 
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WJQLFSV623"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+      gtag("config", "G-WJQLFSV623");
+    </script>
+    {% block extrahead %}{% endblock %}
+  </head>
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        {% block extrahead %}{% endblock %}
-    </head>
+  <body>
+    <!-- Navbar -->
+    {% include "./navbar.html" %}
 
+    <!-- Content -->
+    <main class="page-content" role="main">
+      {% block content %} {% endblock content %}
+    </main>
 
-    <body>
+    <!-- Counter -->
+    <div style="display: none">
+      <img src="{% google_analytics %}" width="0" height="0" />
+    </div>
+    {% block vg_wort_counter %}{% endblock %}
 
-        <!-- Navbar -->
-        {% include "./navbar.html" %}
+    <!-- Footer -->
+    {% include "./footer.html" %}
 
-
-        <!-- Content -->
-        <main class="page-content" role="main">
-            {% block content %}
-            {% endblock content %}
-        </main>
-
-        <!-- Counter -->
-        <div style="display:none">
-            <img src="{% google_analytics %}" width="0" height="0" />
-        </div>
-        {% block vg_wort_counter %}{% endblock %}
-
-        <!-- Footer -->
-        {% include "./footer.html" %}
-
-
-        <!-- Extra Scripts -->
-        {% block extrascripts %}
-        {% endblock %}
-
-    </body>
-
+    <!-- Extra Scripts -->
+    {% block extrascripts %} {% endblock %}
+  </body>
 </html>
