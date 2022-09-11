@@ -4,17 +4,17 @@
 :root {
   /* palette */
 
-  --black-color: #0B0C10;
-  --dark-gray-color: #1F2833;
-  --gray-color: #C5C6C7;
-  --dark-blue-color: #2C5EB3;
-  --gray-turquoise-color: #45A29E;
-  --light-turquoise-color: #66FCF1;
+  --black-color: #0b0c10;
+  --dark-gray-color: #1f2833;
+  --gray-color: #c5c6c7;
+  --dark-blue-color: #2c5eb3;
+  --gray-turquoise-color: #45a29e;
+  --light-turquoise-color: #66fcf1;
   --orange-color: #fc8966;
   --yellow-color: #fcd466;
   --violett-color: #6670fc;
   --light-green-color: #6bfc66;
-  --neon-green-color: #00FE0C;
+  --neon-green-color: #00fe0c;
 
   /* themes */
 
@@ -45,12 +45,8 @@
   /* --date-size: 1.75rem; */
   --text-size: 1.25rem;
   /*20px*/
-  ;
-
-
   /* common */
   --header-height: 7.25em;
-
 }
 
 /* Marking / Selection Colors */
@@ -66,8 +62,6 @@
   /* Gecko Browsers */
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -79,10 +73,9 @@ html {
   height: 100%;
 }
 
-
 body {
   height: 100%;
-  margin:0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   background: var(--black-color);
@@ -111,7 +104,8 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--thumb-bg-color);
   border-radius: 30px;
-  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.25);
   border: none;
 }
 
@@ -127,10 +121,7 @@ header {
   background: var(--page-color);
 }
 
-
 /* ---------- CONTENT -------------------------*/
-
-
 
 .page-content {
   align-self: center;
@@ -139,22 +130,34 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top:5%;
+  margin-top: 5%;
 }
 
-/* Medium screen devices (768px and below) */
-@media only screen and (max-width: 768px) {
+/* Smal screen devices (700px and below) */
+@media only screen and (max-width: 700px) {
   html {
     font-size: 70%;
   }
   .page-content {
-     width: 90%;
-     margin-bottom: 50px;
+    width: 90%;
+    margin-bottom: 50px;
   }
 }
 
-/* Big screen devices (889px and above) */
-@media only screen and (min-width: 889px) {
+/* Medium screen devices */
+@media only screen and (min-width: 700px) {
+  html {
+    font-size: 85%;
+  }
+  .page-content {
+    width: 60%;
+  }
+}
+
+
+
+/* Big screen devices */
+@media only screen and (min-width: 1920px) {
   html {
     font-size: 100%;
   }
@@ -162,7 +165,6 @@ header {
     width: 40%;
   }
 }
-
 
 /*---------------------------------------------
           REUSABLE COMPONENTS
@@ -202,7 +204,6 @@ h3 {
 
 /* ------------PARAGRAPHS------------------------*/
 
-
 /* ------------HORIZONTAL RULE------------------------*/
 
 hr {
@@ -211,16 +212,15 @@ hr {
   border-top: 0.063rem solid;
 }
 
-
 /* ------------LINKS------------------------*/
 a {
   color: var(--gray-turquoise-color);
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 a:hover {
   color: var(--yellow-color);
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 /* ------------CONTAINER------------------------*/
@@ -265,39 +265,6 @@ ion-icon {
 }
 
 
-/* ------------BUTTONS---------------------------*/
-
-
-.btn-filled,
-.btn-bordered {
-  border: 2px solid;
-  border-color: var(--light-turquoise-color);
-}
-
-.btn-filled {
-  background-color: var(--light-turquoise-color);
-  color: var(--black-color);
-}
-
-.btn-bordered {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  color: white;
-}
-
-.btn-danger {
-  color: #fff;
-  background-color: #f00000;
-  border-color: #dc281e;
-}
-
-.read-more-btn {
-  color: var(--gray-turquoise-color);
-  font-weight: bold;
-}
-
-
-
 /* ------------DIVIDER---------------------------*/
 .blog-divider-top,
 .blog-divider-bottom,
@@ -306,17 +273,15 @@ ion-icon {
   border-top: 0.15rem solid;
 }
 
-
 .blog-divider-top {
   margin-bottom: 3rem;
-  width: 50%
+  width: 50%;
 }
 
 .blog-divider-bottom {
   margin-top: 3rem;
-  width: 50%
+  width: 50%;
 }
-
 
 /* ------------CARDS---------------------------*/
 
@@ -332,7 +297,6 @@ ion-icon {
   object-fit: cover;
 }
 
-
 .card-body {
   position: relative;
   padding: 24px 36px;
@@ -340,7 +304,6 @@ ion-icon {
   flex-direction: column;
   gap: 12px;
 }
-
 
 /* ------------IMAGES---------------------------*/
 
@@ -433,11 +396,11 @@ ion-icon {
 
 @keyframes zoom {
   from {
-    transform: scale(0)
+    transform: scale(0);
   }
 
   to {
-    transform: scale(1)
+    transform: scale(1);
   }
 }
 

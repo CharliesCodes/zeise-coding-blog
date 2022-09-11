@@ -45,29 +45,39 @@
         <h1 id="main-search-title">{{search|title}}</h1>
     </div>
 
-        <div class="col">
+    <div class="posts-flex">
         <!-- Blog Entries Column -->
-        <div class="flex-container wrap center" style="width: 100%;">
-            {% for post in filtered_posts %}
-            <div class="card mb-4 border-card post-card" style="margin-bottom: 3.5rem !important">
-                <div class="card-body">
-                    <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">
-                        {% for category in post.categories.all %}
-                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> |
-                        {% endfor %}
-                        {{ post.author.first_name|title }} {{ post.author.last_name|title }} - {{ post.created_on.date}}
-                        {% if user.is_authenticated and user.id == post.author.id %}
-                            <a href="{% url 'edit-post' post.slug  %}">Edit</a> | <a href="{% url 'delete-post' post.slug  %}">Delete</a>
-                        {% endif %}
+        {% for post in filtered_posts %}
+        <div class="post-card">
+            <div class="post-card__body">
+                <div class="post-card__image-area">
+                    <img class="post-card__image" alt="Thumbnail Python Type Hinting" src="{{post.header_image}}">
+                    <p class="text-muted post-card__image-categories">
+                        {{ post.created_on.date}}<br> {% comment %}| {{ post.author.first_name|title }} {{ post.author.last_name|title }} {% endcomment %}
                     </p>
-                    <p class="card-text">{{ post.snippet|safe }}</p>
-                    <a href="{% url 'post-detail' post.slug  %}" class="read-more-btn btn" style="text-align:center;display:block;">Read More</a>
+                </div>
+                <div class="post-card__body__text-area">
+                    <h2 style="margin-bottom:2rem;">{{ post.title }}</h2>
+                    <p>{{ post.snippet|safe }}</p>
+                    <div class="text-muted">
+                        {% for category in post.categories.all %}
+                            <a href="{% url 'category' category|slugify %}"> {{ category|title }}</a> &nbsp;
+                        {% endfor %}
+                    </div>
+                    <p class="text-muted post-card__body__text-area-categories">
+                        {{ post.created_on.date}}<br> {% comment %}| {{ post.author.first_name|title }} {{ post.author.last_name|title }} {% endcomment %}
+                    </p>
                 </div>
             </div>
-            {% endfor %}
+            <a href="{% url 'post-detail' post.slug  %}"><span class="post-link"></span></a>
         </div>
+        {% endfor %}
     </div>
+
+
+
+
+
 
 
 {% else %}

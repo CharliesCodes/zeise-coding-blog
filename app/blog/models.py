@@ -37,7 +37,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     description = models.CharField(blank=True, max_length=155)
     categories = models.ManyToManyField(Category, related_name="posts")
-    header_image = models.ImageField(blank=True, null=True, upload_to="images/")
+    header_image = models.URLField(blank=True, null=True, max_length=200)
     header_image_alt = models.CharField(blank=True, null=True, max_length=400)
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
