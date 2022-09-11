@@ -262,6 +262,14 @@
 /*---------------------------------------------
               DETAIL
 ---------------------------------------------*/
+
+.blog-post-header-image{
+  width:100%;
+  box-sizing: border-box;
+  border-radius: 40px;
+}
+
+
 .social-meadia-list {
   margin-top: 20px;
   display: flex;
@@ -298,4 +306,22 @@
 /* Code Snippets */
 .hljs {
   background: transparent !important;
+}
+
+.blog-divider-top,
+.blog-divider-bottom,
+.light-turquoise-divider {
+  border-color: var(--light-turquoise-color) !important;
+  border-top: 0.15rem solid;
+}
+
+.blog-divider-top {
+  margin-bottom: 3rem;
+  margin-top: 1.5rem;
+  width: 50%;
+}
+
+.blog-divider-bottom {
+  margin-top: 3rem;
+  width: 50%;
 }
