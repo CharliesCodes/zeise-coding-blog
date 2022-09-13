@@ -5,8 +5,6 @@ from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
 from cloudinary.models import CloudinaryField
 from django.contrib.contenttypes.fields import GenericRelation
-from hitcount.models import HitCountMixin, HitCount
-
 
 STATUS = ((0, "Draft"), (1, "Publish"))
 
@@ -46,14 +44,6 @@ class Post(models.Model):
     snippet = models.CharField(default=None, blank=True, max_length=200)
     pin = models.BooleanField(default=False)
     vg_wort_counter = models.CharField(blank=True, max_length=500)
-    hit_count_generic = GenericRelation(
-        HitCount,
-        object_id_field="object_pk",
-        related_query_name="hit_count_generic_relation",
-    )
-
-    def current_hit_count(self):
-        return self.hit_count.hits
 
     class Meta:
         ordering = ["-created_on"]
