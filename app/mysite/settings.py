@@ -90,7 +90,6 @@ INSTALLED_APPS = [
     "cloudinary_storage",
     "cloudinary",
     "jquery",
-    "hitcount",
     "home",
     "blog",
     "courses",
