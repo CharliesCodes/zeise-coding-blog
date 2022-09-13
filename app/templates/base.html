@@ -24,10 +24,11 @@
     {% load static %} {% load google_analytics_tags %}
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-    <link
+    {% comment %} <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,700"
       rel="stylesheet"
-    />
+    /> {% endcomment %}
+    <link href="{% static 'fonts/roboto/Roboto-Regular.ttf' %}" rel="stylesheet" media="screen">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
     <link

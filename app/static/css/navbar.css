@@ -83,10 +83,6 @@
     font-size: var(--h2-size);
 }
 
-#navbar-left {
-    flex: 1;
-}
-
 #brand {
     display: flex;
     justify-content: flex-start;
@@ -94,19 +90,11 @@
     column-gap: 5px;
 }
 
-#navbar-center {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: space-between;
-    gap: 10px 30px;
-    flex: 1;
+#brand-name{
+  text-decoration: none;
+  color: var(--gray-turquoise-color);
 }
 
-#navbar-right{
-    flex: 1;
-}
 
 .dropdown-content {
     display: none;
@@ -117,7 +105,6 @@
     position: absolute;
 }
 
-/* For extremely small screen devices (595px and below) */
 @media only screen and (max-width: 595px) {
     .nav__menu {
        display: none;
@@ -165,6 +152,10 @@
   }
 }
 
+.nav__menu a{
+  /* color: white; */
+  font-weight: bold;
+}
 
 /* Small screen devices (600px and above) */
 /* @media only screen and (min-width: 600px) {...} */

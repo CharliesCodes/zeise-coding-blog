@@ -20,6 +20,7 @@
   border-radius: 0.25em;
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
   position: relative;
+  user-select: none;
 }
 
 .btn-courses{
@@ -168,11 +169,12 @@
 
 
 .profile-image{
-    max-width: 100%;
-    height: auto;
-    width: auto; /*ie8*/
-    border: 0.25rem solid;
-    border-color: var(--gray-color);
+  max-width: 100%;
+  height: auto;
+  width: auto; /*ie8*/
+  border: 0.25rem solid;
+  border-color: var(--gray-color);
+  user-select: none;
 }
 
 

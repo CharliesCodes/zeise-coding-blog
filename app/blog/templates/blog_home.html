@@ -24,7 +24,7 @@
 
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static "css/blog.css" %}">
+<link rel="stylesheet" href="{% static "blog/css/blog.css" %}">
 {% endblock %}
 
 
@@ -33,8 +33,10 @@
 
 {% comment %} <h1 style="margin-bottom: 3.5rem; text-align:center;">Blog</h1> {% endcomment %}
 
+<h1 style="margin-bottom: 3rem">Blogartikel</h1>
+
 {% if categories_menu %}
-<div style="margin-bottom: 5rem; width: 100%">
+<div style="margin-bottom: 2rem; width: 100%">
     <ul class="categories__menu">
         {% for item in categories_menu %}
             <li>
@@ -67,7 +69,7 @@
     <div class="post-card">
         <div class="post-card__body">
             <div class="post-card__image-area">
-                <img class="post-card__image" alt="Thumbnail Python Type Hinting" src="{{post.header_image}}">
+                <img class="post-card__image" alt="Thumbnail {{ post.title }}" src="{{post.header_image}}">
                 <p class="text-muted post-card__image-categories">
                     {{ post.created_on.date}}<br> {% comment %}| {{ post.author.first_name|title }} {{ post.author.last_name|title }} {% endcomment %}
                 </p>
@@ -95,7 +97,7 @@
     <div class="post-card">
         <div class="post-card__body">
             <div class="post-card__image-area">
-                <img class="post-card__image" alt="Thumbnail Python Type Hinting" src="{{post.header_image}}">
+                <img class="post-card__image" alt="Thumbnail {{ post.title }}" src="{{post.header_image}}">
                 <p class="text-muted post-card__image-categories">
                     {{ post.created_on.date}}<br> {% comment %}| {{ post.author.first_name|title }} {{ post.author.last_name|title }} {% endcomment %}
                 </p>

@@ -12,23 +12,26 @@ STATUS = ((0, "Draft"), (1, "Publish"))
 class Course(models.Model):
     title = models.CharField(max_length=60)
     subtitle = models.CharField(max_length=120, blank=True)
-    # slug = models.SlugField(max_length=200, unique=True)
+    # slug = models.SlugField(max_length=200, unique=True, default=None)
     external_link = models.URLField(default=None, null=True)
+    promo_link = models.URLField(default=None, null=True)
+    discount_link = models.URLField(default=None, null=True)
+    price = models.DecimalField(decimal_places=2, max_digits=6, blank=True, null=True)
+    discount_price = models.DecimalField(decimal_places=2, max_digits=6, blank=True, null=True)
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, related_name="courses", null=True
     )
     categories = models.ManyToManyField(Category, related_name="courses")
-    thumbnail = models.OneToOneField(
-        Image, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True
-    )
+    # thumbnail = models.OneToOneField(
+    #     Image, on_delete=models.SET_NULL, related_name="courses", null=True, blank=True
+    # )
+    thumbnail = models.URLField(blank=True, null=True, max_length=200)
     content = RichTextField(blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    snippet = models.CharField(max_length=200)
+    snippet = models.CharField(max_length=200, blank=True)
     pin = models.BooleanField(default=False)
 
-    # price
-    # external_link
 
     class Meta:
         ordering = ["title"]

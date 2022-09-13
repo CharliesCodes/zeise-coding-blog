@@ -118,17 +118,17 @@
   }
 }
 
-/* ========== POST CARD BODY ========== */
+
 .post-card__body{
   position: relative;
   padding: 24px 36px;
   display: flex;
   border-radius: 20px;
   background: linear-gradient(
-    137deg,
-    var(--dark-gray-color) 0%,
-    var(--black-color) 90%
-  );
+      180deg,
+      var(--dark-gray-color) 1.87%,
+      var(--black-color) 97.59%
+    )
 }
 
 @media only screen and (min-width: 700px) {
@@ -139,14 +139,6 @@
     margin-left: auto;
     margin-right: 0;
   }
-  /* TODO: doesnt work, cause you cant hover boby -> only card */
-  /* .post-card__body:hover{
-    background: linear-gradient(
-      182.25deg,
-      var(--dark-gray-color) 1.87%,
-      var(--black-color) 97.59%
-    )
-  } */
 }
 
 @media only screen and (max-width: 700px) {
@@ -183,8 +175,6 @@
   filter: blur(5px);
   border-radius: 20px;
 }
-
-/* ========== POST CARD BODY TEXT AREA ========== */
 
 
 .post-card__body__text-area{
@@ -267,6 +257,7 @@
   width:100%;
   box-sizing: border-box;
   border-radius: 40px;
+  margin-bottom: 3rem;
 }
 
 

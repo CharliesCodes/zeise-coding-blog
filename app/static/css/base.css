@@ -1,6 +1,11 @@
 /*---------------------------------------------
               BASIC SETUP
 ---------------------------------------------*/
+@font-face {
+  font-family:'Roboto-Regular';
+  src: local('Roboto-Regular'),
+        url('../fonts/roboto/Roboto-Regular.ttf') format("truetype");
+}
 :root {
   /* palette */
 
@@ -30,9 +35,8 @@
   /* --image-placeholder-color: var(--light-gray-color); */
 
   /* typography */
-
   --serif-fonts: "Times New Roman", serif;
-  --sans-serif-fonts: "Roboto-Light", Arial, sans-serif;
+  --sans-serif-fonts: "Roboto-Regular", Arial, sans-serif;
 
   /* --welcome-head-text: 1.75em;
     --welcome-text: 1.125em;*/
@@ -147,14 +151,12 @@ header {
 /* Medium screen devices */
 @media only screen and (min-width: 700px) {
   html {
-    font-size: 85%;
+    font-size: 80%;
   }
   .page-content {
     width: 60%;
   }
 }
-
-
 
 /* Big screen devices */
 @media only screen and (min-width: 1920px) {
