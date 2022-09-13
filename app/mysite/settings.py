@@ -30,7 +30,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG == True:
     ALLOWED_HOSTS = ["*"]
@@ -207,7 +207,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # * Whitenoise seems to be buggy -> Error 500 on Heroku
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 
 
 # Base url to serve media files
