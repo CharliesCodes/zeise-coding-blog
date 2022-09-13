@@ -207,9 +207,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 
 # * Whitenoise seems to be buggy -> Error 500 on Heroku
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Base url to serve media files

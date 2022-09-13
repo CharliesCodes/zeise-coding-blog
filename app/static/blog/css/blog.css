@@ -184,6 +184,11 @@
   flex-basis: 60%;
 }
 
+@media only screen and (max-width: 700px) {
+  .post-card__body__text-area{
+    margin-top: 12px;
+  }
+}
 
 .post-card__image-area{
   flex-basis: 40%;
